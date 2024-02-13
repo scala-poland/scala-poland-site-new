@@ -1,35 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Title from '../components/Title';
-import { ThemeProvider, withTheme } from '@emotion/react'
-// import theme from '../components/theme/theme'
-
-const theme = {
-  fontStyles: {
-    primaryFontFamily: "'Inter', sans-serif",
-  },
-  colors: {
-    neutrals: {
-      100: "#FFFFFF",
-      200: "#FAFAFA",
-    },
-    grey: {
-      100: "#E1E3E8",
-      200: "#12141D",
-      300: "#18181B",
-      600: "#52525B",
-      500: "#959595",
-      400: "#3A3A3A",
-      700: "#999999",
-    },
-    red: {
-      100: "#FF0000",
-    },
-  },
+import Card from '../components/Card/Card.astro';
+import Title from '../components/Title/Title.astro';
 
 
-};
 
 
 ---
@@ -37,34 +11,27 @@ const theme = {
 
 
 <Layout title="Polish Scala Comunity.">
-	<ThemeProvider theme={theme}>
 	<main>
-		<Title title="Scala"/>
+		<h1> Scala </h1>
+		<Title title="scala"/>
+		<Card title="test" href="www.google.com" body="body"> <p>Card description</p></Card>
 	
 	
 	</main>
-</ThemeProvider>
 </Layout>
 
 <style>
+
+/* left for now to compare usage css and scss */
 	main {
 		margin: auto;
 		padding: 1rem;
 		width: 800px;
 		max-width: calc(100% - 2rem);
-		color: white;
 		font-size: 20px;
 		line-height: 1.6;
 	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
+	
 	h1 {
 		font-size: 4rem;
 		font-weight: 700;
@@ -72,36 +39,5 @@ const theme = {
 		text-align: center;
 		margin-bottom: 1em;
 	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
+	
 </style>
-../components/theme

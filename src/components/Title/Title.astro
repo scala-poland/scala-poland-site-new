@@ -1,0 +1,16 @@
+---
+import CSS from './Title.module.scss';
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div>
+		<h2 class={CSS.title}>
+			{title}
+		</h2>
+</div>
+<style lang="scss">
+</style>
