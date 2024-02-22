@@ -1,0 +1,34 @@
+$font-w-normal: 400;
+$font-w-medium: 500;
+$font-w-semibold: 600;
+
+@mixin font($font: 1rem, $lineHeight: normal, $weight: $font-w-normal) {
+  font-size: $font;
+  line-height: $lineHeight;
+
+  @if $weight == bold {
+    font-weight: $font-w-semibold;
+  } @else if $weight == medium {
+    font-weight: $font-w-medium;
+  } @else {
+    font-weight: $weight;
+  }
+}
+
+@mixin typography {
+  p {
+    font-weight: $font-w-normal;
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+
+  a {
+    text-decoration: initial;
+  }
+
+  br {
+    @include screen-sm-minus {
+      display: none;
+    }
+  }
+}

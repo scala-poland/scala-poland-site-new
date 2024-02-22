@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card/Card.astro';
+import Title from '../components/Title/Title.astro';
+
+---
+
+<Layout title="Polish Scala Comunity">
+	<main>
+		<h1> Scala </h1>
+		<Title title="scala"/>
+		<Card title="test" href="www.google.com" body="body"> <p>Card description</p></Card>
+	
+	
+	</main>
+</Layout>
+
+<style>
+
+/* left for now to compare usage css and scss */
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	
+</style>
