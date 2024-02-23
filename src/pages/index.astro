@@ -1,16 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card/Card.astro';
-import Title from '../components/Title/Title.astro';
+import Title, { TITLE_ICONS, TITLE_VARIANTS } from '../components/Title/Title.astro';
 
 ---
 
 <Layout title="Polish Scala Comunity">
 	<main>
-		<Title title="Learning materials"/>
-		<Title title="Scala written in Poland" variant="largeUnderline"/>
-		<Title title="Scala Conference" variant="mediumUnderline"/>
-		<Title title="Iterators" variant="small"/>
+		<Title title="Learning materials" icon={TITLE_ICONS.email}/>
+		<Title title="Learning materials" icon={TITLE_ICONS.calendar}/>
+		<Title title="Learning materials" icon={TITLE_ICONS.handshake}/>
+		<Title title="Learning materials" icon={TITLE_ICONS.userGroup}/>
+		<Title title="Scala written in Poland" variant={TITLE_VARIANTS.largeUnderline} />
+		<Title title="Scala Conference" variant={TITLE_VARIANTS.mediumUnderline}/>
+		<Title title="Iterators" variant={TITLE_VARIANTS.small}/>
 		<Card title="test" href="www.google.com" body="body"> <p>Card description</p></Card>
 	
 	

@@ -1,16 +1,33 @@
 ---
 import '../../styles/global.css'
-interface Props {
-	title: string;
-	variant?: 'largeUnderline' | 'medium' | 'mediumUnderline' | 'small'
-	icon?: 'email' | 'deal' | 'calendar' |'user-group'
+import { Icon } from 'astro-icon/components'
+
+export const TITLE_ICONS = {
+	email: 'email',
+	handshake: 'handshake',
+	calendar: 'calendar',
+	userGroup: 'user-group'
 }
 
+export const TITLE_VARIANTS = {
+	largeUnderline:'largeUnderline',
+	medium: 'medium', 
+	mediumUnderline: 'mediumUnderline', 
+	small: 'small'
+
+}
+interface Props {
+	title: string;
+	variant?: string;
+	icon?: string; 
+}
+//TODO types TITLE_VARIANTS
 
 const { title,  variant= 'medium', icon, } = Astro.props;
 ---
 
 <div class="root">
+	{icon && <div class="iconContainer"><div class="icon"><Icon name={icon} width={56} height={56}/></div></div></div> }
 		<span class:list={['title', {largeUnderline: variant==='largeUnderline'}, { mediumUndeline: variant==='mediumUnderline'}, {small: variant==='small'}]}>
 			{title}
 		</span>
@@ -20,18 +37,32 @@ const { title,  variant= 'medium', icon, } = Astro.props;
 	padding: 1rem;
 	color: var(--color-black-200);
 	text-align: center;
-	border: 1px solid blue;
+	
 }
+
+.iconContainer{
+	position: relative;
+	width:49px;
+	height:49px;
+	background-color: var(--color-red-semitransparent);
+	margin: 0 auto;
+	border-radius: 50%;
+}
+
+.icon{
+	transform: translate(30%, -30%);
+}
+
 .title {
 	position: relative;
 	font-size: 30px;
 	font-weight: 600;
-	border: 1px solid red;
 	padding: 6px 0;
   
 }
 
 .largeUnderline {
+	//TODO deferent font after Cris change in designes
 	font-size: 52px;
 	font-weight: 400;
 	
@@ -47,9 +78,10 @@ const { title,  variant= 'medium', icon, } = Astro.props;
       }
 }
 .mediumUndeline {
-  color: var(--color-red-100);
   font-weight: 500;
   padding:10px 0;
+  color: var(--color-black-100);
+
   &:before {
         content: '';
         position: absolute;
