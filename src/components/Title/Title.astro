@@ -1,31 +1,67 @@
 ---
-import CSS from './Title.module.scss';
+import '../../styles/global.css'
 interface Props {
 	title: string;
-	isLarge?: boolean
-	underline?: 'left' | 'center'
+	variant?: 'largeUnderline' | 'medium' | 'mediumUnderline' | 'small'
 	icon?: 'email' | 'deal' | 'calendar' |'user-group'
 }
 
-const { title,  underline, icon, isLarge } = Astro.props;
+
+const { title,  variant= 'medium', icon, } = Astro.props;
 ---
 
-<div>
-		<h1 class:list={['title', {large: isLarge}]}>
+<div class="root">
+		<span class:list={['title', {largeUnderline: variant==='largeUnderline'}, { mediumUndeline: variant==='mediumUnderline'}, {small: variant==='small'}]}>
 			{title}
-		</h1>
+		</span>
 </div>
-<style >
+<style define:vars={{ }} lang="scss">
+.root{
+	padding: 1rem;
+	color: var(--color-black-200);
+	text-align: center;
+	border: 1px solid blue;
+}
 .title {
-  padding: 1rem;
-  color: #12141D;
-  text-align: center;
-  font-size: 30px;
-  font-weight: 500;
+	position: relative;
+	font-size: 30px;
+	font-weight: 600;
+	border: 1px solid red;
+	padding: 6px 0;
+  
 }
 
-.large {
-  font-size: 52px;
+.largeUnderline {
+	font-size: 52px;
+	font-weight: 400;
+	
+  &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+		transform: translateX(-50%);
+        width: 64px;
+        height: 1px;
+        background-color: var(--color-red-100);
+      }
+}
+.mediumUndeline {
+  color: var(--color-red-100);
+  font-weight: 500;
+  padding:10px 0;
+  &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 1px;
+        background-color: var(--color-red-100);
+      }
+}
+.small{
+	font-size: 24px;
 }
 
 </style>
