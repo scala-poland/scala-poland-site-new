@@ -2,15 +2,30 @@
 import CSS from './Title.module.scss';
 interface Props {
 	title: string;
+	isLarge?: boolean
+	underline?: 'left' | 'center'
+	icon?: 'email' | 'deal' | 'calendar' |'user-group'
 }
 
-const { title } = Astro.props;
+const { title,  underline, icon, isLarge } = Astro.props;
 ---
 
 <div>
-		<h2 class={CSS.title}>
+		<h1 class:list={['title', {large: isLarge}]}>
 			{title}
-		</h2>
+		</h1>
 </div>
-<style lang="scss">
+<style >
+.title {
+  padding: 1rem;
+  color: #12141D;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.large {
+  font-size: 52px;
+}
+
 </style>
