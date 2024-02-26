@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { TITLE_VARIANTS } from '../../domain/constants';
 import type { TitleVariantsType, TitleIconsType } from '../../domain/types';
 
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
   icon?: TitleIconsType;
 }
 
-const { title, variant = 'medium', icon } = Astro.props;
+const { title, variant, icon } = Astro.props;
 ---
 
 <div class="root">
@@ -21,15 +22,7 @@ const { title, variant = 'medium', icon } = Astro.props;
       </div>
     )
   }
-  <h2
-    class:list={[
-      'title',
-      { extraLargeUnderline: variant === 'extraLargeUnderline' },
-      { largeUnderline: variant === 'largeUnderline' },
-      { mediumUndeline: variant === 'mediumUnderline' },
-      { small: variant === 'small' },
-    ]}
-  >
+  <h2 class:list={['title', variant]}>
     {title}
   </h2>
 </div>
@@ -40,7 +33,6 @@ const { title, variant = 'medium', icon } = Astro.props;
     padding: 1rem;
     color: $color-black-200;
     text-align: center;
-    // border: 1px solid $color-red-100;
   }
 
   .iconContainer {
@@ -68,7 +60,7 @@ const { title, variant = 'medium', icon } = Astro.props;
     font-size: 24px;
   }
 
-  .mediumUndeline {
+  .mediumUnderline {
     font-weight: 500;
     padding: 10px 0;
     color: $color-black-100;
