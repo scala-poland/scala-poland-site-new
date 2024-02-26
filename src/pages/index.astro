@@ -1,38 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card/Card.astro';
-import Title, { TITLE_ICONS, TITLE_VARIANTS } from '../components/Title/Title.astro';
+import Title from '../components/Title/Title.astro';
+import { TITLE_ICONS, TITLE_VARIANTS } from '../domain/constants.ts';
+import Introduction from '../components/Introduction/Introduction.astro';
 ---
 
 <Layout title="Polish Scala Comunity">
   <main>
+    <Introduction />
     <Title title="Learning materials" icon={TITLE_ICONS.email} />
     <Title title="Learning materials" icon={TITLE_ICONS.calendar} />
     <Title title="Learning materials" icon={TITLE_ICONS.handshake} />
     <Title title="Learning materials" icon={TITLE_ICONS.userGroup} />
-    <Title title="Scala written in Poland" variant={TITLE_VARIANTS.largeUnderline} />
+
     <Title title="Scala Conference" variant={TITLE_VARIANTS.mediumUnderline} />
     <Title title="Iterators" variant={TITLE_VARIANTS.small} />
-    <Card title="test" href="www.google.com" body="body"> <p>Card description</p></Card>
   </main>
 </Layout>
 
-<style>
-  /* left for now to compare usage css and scss */
+<style lang="scss">
+  @import '../styles/common-style.scss';
   main {
+    @include flex-container(flex-start, center, column, 68px);
     margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    font-size: 20px;
+    max-width: 1220px;
     line-height: 1.6;
-  }
-
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
+    padding: 0 1rem;
   }
 </style>

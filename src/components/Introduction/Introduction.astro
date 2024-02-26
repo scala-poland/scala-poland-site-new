@@ -1,0 +1,24 @@
+---
+import Title from '../Title/Title.astro';
+import { TITLE_VARIANTS } from '../../domain/constants';
+
+import content from '../../content/content';
+---
+
+<section>
+  <Title title="Scala written in Poland" variant={TITLE_VARIANTS.largeUnderline} />
+  <p>
+    {content.introductionText}
+  </p>
+</section>
+
+<style lang="scss">
+  section {
+    max-width: 922px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  p {
+    line-height: 30px;
+  }
+</style>

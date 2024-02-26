@@ -1,26 +1,12 @@
 ---
-import '../../styles/global.css';
 import { Icon } from 'astro-icon/components';
+import type { TitleVariantsType, TitleIconsType } from '../../domain/types';
 
-export const TITLE_ICONS = {
-  email: 'email',
-  handshake: 'handshake',
-  calendar: 'calendar',
-  userGroup: 'user-group',
-};
-
-export const TITLE_VARIANTS = {
-  largeUnderline: 'largeUnderline',
-  medium: 'medium',
-  mediumUnderline: 'mediumUnderline',
-  small: 'small',
-};
 interface Props {
   title: string;
-  variant?: string;
-  icon?: string;
+  variant?: TitleVariantsType;
+  icon?: TitleIconsType;
 }
-//TODO types TITLE_VARIANTS
 
 const { title, variant = 'medium', icon } = Astro.props;
 ---
@@ -35,32 +21,35 @@ const { title, variant = 'medium', icon } = Astro.props;
       </div>
     )
   }
+  <span
+    class:list={[
+      'title',
+      { largeUnderline: variant === 'largeUnderline' },
+      { mediumUndeline: variant === 'mediumUnderline' },
+      { small: variant === 'small' },
+    ]}
+  >
+    {title}
+  </span>
 </div>
-<span
-  class:list={[
-    'title',
-    { largeUnderline: variant === 'largeUnderline' },
-    { mediumUndeline: variant === 'mediumUnderline' },
-    { small: variant === 'small' },
-  ]}
->
-  {title}
-</span>
 
-<style define:vars={{}} lang="scss">
+<style lang="scss">
+  @import '../../styles/common-style.scss';
   .root {
     padding: 1rem;
-    color: var(--color-black-200);
+    color: $color-black-200;
     text-align: center;
+    // border: 1px solid $color-red-100;
   }
 
   .iconContainer {
     position: relative;
     width: 49px;
     height: 49px;
-    background-color: var(--color-red-semitransparent);
+    background-color: $color-red-semitransparent;
     margin: 0 auto;
     border-radius: 50%;
+    transform: translateX(-15%);
   }
 
   .icon {
@@ -87,13 +76,18 @@ const { title, variant = 'medium', icon } = Astro.props;
       transform: translateX(-50%);
       width: 64px;
       height: 1px;
-      background-color: var(--color-red-100);
+      background-color: $color-red-100;
+    }
+
+    @include screen-xs {
+      font-size: 48px;
+      line-height: 110%;
     }
   }
   .mediumUndeline {
     font-weight: 500;
     padding: 10px 0;
-    color: var(--color-black-100);
+    color: $color-black-100;
 
     &:before {
       content: '';
@@ -102,7 +96,7 @@ const { title, variant = 'medium', icon } = Astro.props;
       left: 0;
       width: 50px;
       height: 1px;
-      background-color: var(--color-red-100);
+      background-color: $color-red-100;
     }
   }
   .small {

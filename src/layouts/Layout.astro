@@ -21,22 +21,44 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global>
-  :root {
-    --color-neutral-100: #ffffff;
-    --color-neutral-200: #fafafa;
-    --color-gray-100: #e1e3e8;
-    --color-gray-200: #959595;
-    --color-gray-300: #999999;
-    --color-gray-400: #52525b;
-    --color-gray-500: #3a3a3a;
-    --color-gray-600: #18181b;
-    --color-black-100: #18181b;
-    --color-black-200: #12141d;
-
-    --color-red-100: #ff0000;
-    --color-red-semitransparent: #ff00002b;
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
   }
-  html {
+
+  body > iframe {
+    pointer-events: none;
+  }
+
+  body {
+    min-height: 100svh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
     font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  button {
+    border: none;
+    background-color: inherit;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
   }
 </style>

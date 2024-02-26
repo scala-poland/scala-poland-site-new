@@ -44,6 +44,12 @@ to allow format astro files on save:
   }
 ```
 
+## Adding content
+
+To add or delete content go to:
+
+scr/content/content.ts file and modify content object
+
 
 
 ## 🚀 Project Structure
