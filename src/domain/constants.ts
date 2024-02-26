@@ -6,6 +6,7 @@ export const TITLE_ICONS = {
 };
 
 export const TITLE_VARIANTS = {
+  extraLargeUnderline: 'extraLargeUnderline',
   largeUnderline: 'largeUnderline',
   medium: 'medium',
   mediumUnderline: 'mediumUnderline',

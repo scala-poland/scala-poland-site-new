@@ -21,16 +21,17 @@ const { title, variant = 'medium', icon } = Astro.props;
       </div>
     )
   }
-  <span
+  <h2
     class:list={[
       'title',
+      { extraLargeUnderline: variant === 'extraLargeUnderline' },
       { largeUnderline: variant === 'largeUnderline' },
       { mediumUndeline: variant === 'mediumUnderline' },
       { small: variant === 'small' },
     ]}
   >
     {title}
-  </span>
+  </h2>
 </div>
 
 <style lang="scss">
@@ -63,20 +64,27 @@ const { title, variant = 'medium', icon } = Astro.props;
     padding: 6px 0;
   }
 
+  .small {
+    font-size: 24px;
+  }
+
+  .mediumUndeline {
+    font-weight: 500;
+    padding: 10px 0;
+    color: $color-black-100;
+
+    @include before-underline($color-red-100, 0, 0, 50px);
+  }
+
   .largeUnderline {
-    //TODO deferent font after Cris change in designes
     font-size: 52px;
-    font-weight: 400;
+    font-weight: 700;
+    line-height: 116%;
+
+    @include before-underline($color-red-100, 0, 50%, 64px);
 
     &:before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
       transform: translateX(-50%);
-      width: 64px;
-      height: 1px;
-      background-color: $color-red-100;
     }
 
     @include screen-xs {
@@ -84,22 +92,18 @@ const { title, variant = 'medium', icon } = Astro.props;
       line-height: 110%;
     }
   }
-  .mediumUndeline {
-    font-weight: 500;
-    padding: 10px 0;
-    color: $color-black-100;
 
-    &:before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 50px;
-      height: 1px;
-      background-color: $color-red-100;
+  .extraLargeUnderline {
+    font-size: 82px;
+    font-weight: 700;
+    line-height: 102%;
+    text-align: left;
+
+    @include before-underline($color-red-100, 0, 0, 93px, 2px);
+
+    @include screen-xs {
+      font-size: 68px;
+      line-height: 110%;
     }
-  }
-  .small {
-    font-size: 24px;
   }
 </style>
