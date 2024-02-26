@@ -1,5 +1,5 @@
-@import "common-style.scss";
-@import "@fontsource-variable/inter";
+@import 'common-style.scss';
+@import '@fontsource-variable/inter';
 
 *,
 *::before,
@@ -7,7 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 //workaround for hot-reload react-scripts issue

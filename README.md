@@ -1,16 +1,50 @@
-# Astro Starter Kit: Basics
+## Scala Poland Site
+ 
+## Description 🖋
 
-```sh
-npm create astro@latest -- --template basics
+
+## Getting started
+
+Clone the repo:
+
+```bash
+git clone https://github.com/scala-poland/scala-poland-site-new.git
+```
+ ⚠️ ensure that you use 20.10.0 Node version
+
+and run sequentially:
+
+```bash
+cd evoeco-cms # go to the project's directory
+npm i # install all required dependencies
+npm run dev  # run local server at `http://localhost:4321/`
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+to allow format astro files on save:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- add [Astro vs code extension](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
+- ensure you have [Prettier VS Code extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- go to VS Code settings.json file and add:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+```bash
+{
+    ...
+ "editor.formatOnSave": true,
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+     },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro",
+    "typescript",
+    "typescriptreact"
+  ]
+  }
+```
+
+
 
 ## 🚀 Project Structure
 
@@ -32,14 +66,9 @@ Inside of your Astro project, you'll see the following folders and files:
 │   └── styles/
 │       ├── common-style.scss
 │       └── theme.scss
+├── ...
 └── package.json
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
@@ -54,6 +83,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
