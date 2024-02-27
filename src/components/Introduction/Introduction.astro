@@ -13,10 +13,15 @@ import content from '../../content/content';
 </section>
 
 <style lang="scss">
+  @import '../../styles/common-style.scss';
+
   section {
     max-width: 922px;
     text-align: center;
     margin: 0 auto;
+    @include screen-xs {
+      padding: 0 16px;
+    }
   }
   p {
     line-height: 30px;

@@ -30,7 +30,7 @@ const { title, variant, icon } = Astro.props;
 <style lang="scss">
   @import '../../styles/common-style.scss';
   .root {
-    padding: 1rem;
+    padding: 1rem 0;
     color: $color-black-200;
     text-align: center;
   }
@@ -90,11 +90,12 @@ const { title, variant, icon } = Astro.props;
     font-weight: 700;
     line-height: 102%;
     text-align: left;
-
+    color: $color-neutral-100;
+    padding-bottom: 30px;
     @include before-underline($color-red-100, 0, 0, 93px, 2px);
 
     @include screen-xs {
-      font-size: 68px;
+      font-size: 58px;
       line-height: 110%;
     }
   }

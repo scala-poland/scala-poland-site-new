@@ -1,14 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title/Title.astro';
+import Hero from '../components/Hero/Hero.astro';
 import { TITLE_ICONS, TITLE_VARIANTS } from '../domain/constants.ts';
 import Introduction from '../components/Introduction/Introduction.astro';
+
+//TODO is any way to shortcut imports?
 ---
 
 <Layout title="Polish Scala Comunity">
   <main>
+    <Hero />
     <Introduction />
-    <Title title="Learning materials" icon={TITLE_ICONS.email} />
     <Title title="Learning materials" icon={TITLE_ICONS.calendar} />
     <Title title="Learning materials" icon={TITLE_ICONS.handshake} />
     <Title title="Learning materials" icon={TITLE_ICONS.userGroup} />
@@ -23,8 +26,7 @@ import Introduction from '../components/Introduction/Introduction.astro';
   main {
     @include flex-container(flex-start, center, column, 68px);
     margin: auto;
-    max-width: 1220px;
+    max-width: 1600px;
     line-height: 1.6;
-    padding: 0 1rem;
   }
 </style>
