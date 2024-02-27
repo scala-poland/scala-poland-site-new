@@ -1,9 +1,8 @@
 ---
-import Title from '../Title/Title.astro';
-import { Icon } from 'astro-icon/components';
-import hero_bg from '../../images/hero_bg.png';
-import { TITLE_VARIANTS } from '../../domain/constants';
 import { Image } from 'astro:assets';
+import { TITLE_VARIANTS } from '../../domain/constants';
+import Title from '../Title/Title.astro';
+import hero_bg from '../../images/hero_bg.png';
 import scalaImage from '../../images/scala.png';
 import booksImage from '../../images/books.png';
 import slackImage from '../../images/slack.png';
@@ -14,7 +13,7 @@ const bgUrl = `url(${hero_bg.src})`;
 <section>
   <div class="mainContainer">
     <Image src={scalaImage} alt="Scala logo" />
-    <div class="titleSection">
+    <div class="titleAndDescription">
       <Title title="Polish Scala Comunity" variant={TITLE_VARIANTS.extraLargeUnderline} />
       <p>
         We, the members of the Polish Scala Community, are a group of passionate programmers united by our love for the
@@ -22,9 +21,12 @@ const bgUrl = `url(${hero_bg.src})`;
         create a supportive and inclusive space where Scala programmers can come together to learn, share, and grow.
       </p>
     </div>
-    <a href="#"><Image src={slackImage} alt="Go to slack" /> WE MEET ON SLACK, JOIN US TODAY!</a>
+    <a href="#">
+      <Image src={slackImage} alt="Go to slack" />
+      WE MEET ON SLACK, JOIN US TODAY!
+    </a>
   </div>
-  <Image src={booksImage} alt="Books image" class="books" />
+  <Image src={booksImage} alt="Books image" class="booksImage" />
 </section>
 
 <style lang="scss" define:vars={{ bgUrl }}>
@@ -56,7 +58,7 @@ const bgUrl = `url(${hero_bg.src})`;
       gap: 40px;
     }
   }
-  .titleSection {
+  .titleAndDescription {
     @include flex-container(flex-start, start, column);
     @include screen-xs {
       justify-content: center;
@@ -81,7 +83,7 @@ const bgUrl = `url(${hero_bg.src})`;
     font-weight: 600;
     color: $color-black-200;
   }
-  .books {
+  .booksImage {
     margin-top: 30px;
     width: 45%;
     height: auto;

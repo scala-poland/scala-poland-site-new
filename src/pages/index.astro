@@ -5,17 +5,17 @@ import Hero from '../components/Hero/Hero.astro';
 import { TITLE_ICONS, TITLE_VARIANTS } from '../domain/constants.ts';
 import Introduction from '../components/Introduction/Introduction.astro';
 
-//TODO is any way to shortcut imports?
+//TODO is any way to shortcut imports - check it?
 ---
 
 <Layout title="Polish Scala Comunity">
   <main>
     <Hero />
     <Introduction />
-    <Title title="Learning materials" icon={TITLE_ICONS.calendar} />
-    <Title title="Learning materials" icon={TITLE_ICONS.handshake} />
-    <Title title="Learning materials" icon={TITLE_ICONS.userGroup} />
-    <Title title="Polish Scala Comunity" variant={TITLE_VARIANTS.extraLargeUnderline} />
+    <Title title="Learning materials" icon={TITLE_ICONS.email} />
+    <Title title="Companies using Scala" icon={TITLE_ICONS.handshake} />
+    <Title title="Meetup groups" icon={TITLE_ICONS.calendar} />
+    <Title title="Conferences" icon={TITLE_ICONS.userGroup} />
     <Title title="Scala Conference" variant={TITLE_VARIANTS.mediumUnderline} />
     <Title title="Iterators" variant={TITLE_VARIANTS.small} />
   </main>
