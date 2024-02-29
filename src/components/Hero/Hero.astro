@@ -1,11 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import { TITLE_VARIANTS } from '../../domain/constants';
-import Title from '../Title/Title.astro';
-import hero_bg from '../../images/hero_bg.png';
-import scalaImage from '../../images/scala.png';
-import booksImage from '../../images/books.png';
-import slackImage from '../../images/slack.png';
+import Title from '@components/Title/Title.astro';
+import { TITLE_VARIANTS } from '@domain/constants';
+import hero_bg from '@images/hero_bg.png';
+import scalaImage from '@images/scala.png';
+import booksImage from '@images/books.png';
+import slackImage from '@images/slack.png';
 
 const bgUrl = `url(${hero_bg.src})`;
 ---
@@ -14,14 +14,18 @@ const bgUrl = `url(${hero_bg.src})`;
   <div class="mainContainer">
     <Image src={scalaImage} alt="Scala logo" />
     <div class="titleAndDescription">
-      <Title title="Polish Scala Comunity" variant={TITLE_VARIANTS.extraLargeUnderline} />
+      <Title title="Polish Scala Community" variant={TITLE_VARIANTS.extraLargeUnderline} />
       <p>
         We, the members of the Polish Scala Community, are a group of passionate programmers united by our love for the
         Scala programming language. As a community, we strive to promote the use and understanding of Scala and to
         create a supportive and inclusive space where Scala programmers can come together to learn, share, and grow.
       </p>
     </div>
-    <a href="#">
+    <a
+      href="https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <Image src={slackImage} alt="Go to slack" />
       WE MEET ON SLACK, JOIN US TODAY!
     </a>
@@ -30,7 +34,7 @@ const bgUrl = `url(${hero_bg.src})`;
 </section>
 
 <style lang="scss" define:vars={{ bgUrl }}>
-  @import '../../styles/common-style.scss';
+  @import '@styles/common-style.scss';
 
   section {
     @include flex-container(center, center, row, 16px);

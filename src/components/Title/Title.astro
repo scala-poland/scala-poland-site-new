@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
-import type { TitleVariantsType, TitleIconsType } from '../../domain/types';
+import type { TitleVariantsType, TitleIconsType } from '@domain/types';
+import { TITLE_VARIANTS } from '@domain/constants';
 
 interface Props {
   title: string;
@@ -8,7 +9,24 @@ interface Props {
   icon?: TitleIconsType;
 }
 
-const { title, variant, icon } = Astro.props;
+const createHeadingElementTag = (variant: TitleVariantsType) => {
+  switch (variant) {
+    case TITLE_VARIANTS.extraLargeUnderline:
+      return 'h1';
+    case TITLE_VARIANTS.largeUnderline:
+      return 'h2';
+    case TITLE_VARIANTS.mediumUnderline || TITLE_VARIANTS.medium:
+      return 'h3';
+    case TITLE_VARIANTS.small:
+      return 'h4';
+    default:
+      return 'h3';
+  }
+};
+
+const { title, variant = TITLE_VARIANTS.medium, icon } = Astro.props;
+
+const Heading = createHeadingElementTag(variant);
 ---
 
 <div class="root">
@@ -21,13 +39,11 @@ const { title, variant, icon } = Astro.props;
       </div>
     )
   }
-  <h2 class:list={['title', variant]}>
-    {title}
-  </h2>
+  <Heading class:list={['title', variant]}>{title}</Heading>
 </div>
 
 <style lang="scss">
-  @import '../../styles/common-style.scss';
+  @import '@styles/common-style.scss';
   .root {
     padding: 1rem 0;
     color: $color-black-200;

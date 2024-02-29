@@ -1,8 +1,7 @@
 ---
-import Title from '../Title/Title.astro';
-import { TITLE_VARIANTS } from '../../domain/constants';
-
-import content from '../../content/content';
+import content from '@content/content';
+import Title from '@components/Title/Title.astro';
+import { TITLE_VARIANTS } from '@domain/constants';
 ---
 
 <section>
@@ -13,7 +12,7 @@ import content from '../../content/content';
 </section>
 
 <style lang="scss">
-  @import '../../styles/common-style.scss';
+  @import '@styles/common-style.scss';
 
   section {
     max-width: 922px;

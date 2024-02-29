@@ -5,7 +5,7 @@
   "singleQuote": true,
   "semi": true,
   "plugins": ["prettier-plugin-astro", "@trivago/prettier-plugin-sort-imports"],
-  "importOrder": ["^react", "^mobx", "^axios$", "^clsx$", "^dayjs$", "^qs$", "^uuid$", "^@?\\w", "^\\.", "^\\.\\./"],
+  "importOrder": ["^react", "<THIRD_PARTY_MODULES>", "^@?\\w", "^\\.", "^\\.\\./"],
   "overrides": [
     {
       "files": "*.astro",

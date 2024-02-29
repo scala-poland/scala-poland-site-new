@@ -9,5 +9,6 @@ export const TITLE_VARIANTS = {
   extraLargeUnderline: 'extraLargeUnderline',
   largeUnderline: 'largeUnderline',
   mediumUnderline: 'mediumUnderline',
+  medium: 'medium',
   small: 'small',
 };
