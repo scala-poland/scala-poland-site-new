@@ -6,6 +6,7 @@ import hero_bg from '@images/hero_bg.png';
 import scalaImage from '@images/scala.png';
 import booksImage from '@images/books.png';
 import slackImage from '@images/slack.png';
+import content from '@content/content';
 
 const bgUrl = `url(${hero_bg.src})`;
 ---
@@ -15,11 +16,7 @@ const bgUrl = `url(${hero_bg.src})`;
     <Image src={scalaImage} alt="Scala logo" />
     <div class="titleAndDescription">
       <Title title="Polish Scala Community" variant={TITLE_VARIANTS.extraLargeUnderline} />
-      <p>
-        We, the members of the Polish Scala Community, are a group of passionate programmers united by our love for the
-        Scala programming language. As a community, we strive to promote the use and understanding of Scala and to
-        create a supportive and inclusive space where Scala programmers can come together to learn, share, and grow.
-      </p>
+      <p>{content.heroDescription}</p>
     </div>
     <a
       href="https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA"
