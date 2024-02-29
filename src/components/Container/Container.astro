@@ -1,0 +1,26 @@
+---
+interface Props {
+  maxWidth?: number;
+  class?: string;
+}
+const { maxWidth = 1600, class: className, ...rest } = Astro.props;
+
+const maxWidthDimension = `${maxWidth}px`;
+---
+
+<div class:list={['root', className]} {...rest}>
+  <slot />
+</div>
+
+<style lang="scss" define:vars={{ maxWidthDimension }}>
+  @import '@styles/common-style.scss';
+
+  .root {
+    max-width: var(--maxWidthDimension);
+    margin: 0 auto;
+
+    @include screen-md-minus {
+      padding: 0 16px;
+    }
+  }
+</style>

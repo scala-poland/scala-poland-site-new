@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "scala_poland_site",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,18 +12,19 @@
   "dependencies": {
     "@astrojs/check": "^0.5.3",
     "@astrojs/react": "^3.0.10",
-    "@emotion/react": "^11.11.3",
-    "@emotion/styled": "^11.11.0",
     "@fontsource-variable/inter": "^5.0.16",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "astro": "^4.3.5",
+    "astro-icon": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.70.0",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "@emotion/eslint-plugin": "^11.11.0"
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0"
   }
 }

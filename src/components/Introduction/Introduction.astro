@@ -1,0 +1,29 @@
+---
+import content from '@content/content';
+import Title from '@components/Title/Title.astro';
+import { TITLE_VARIANTS } from '@domain/constants';
+import Container from '@components/Container/Container.astro';
+---
+
+<Container class="container">
+  <Title title="Scala written in Poland" variant={TITLE_VARIANTS.largeUnderline} />
+  <p>
+    {content.introductionText}
+  </p>
+</Container>
+
+<style lang="scss">
+  @import '@styles/common-style.scss';
+
+  .container {
+    max-width: 922px;
+    text-align: center;
+    margin: 0 auto;
+    @include screen-xs {
+      padding: 0 16px;
+    }
+  }
+  p {
+    line-height: 30px;
+  }
+</style>

@@ -19,7 +19,15 @@
     "jsx": "react-jsx",
     "noImplicitAny": false,
     "experimentalDecorators": true,
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@images/*": ["src/assets/images/*"],
+      "@content/*": ["src/content/*"],
+      "@domain/*": ["src/domain/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@styles/*": ["src/styles/*"]
+    }
   },
   "include": ["src"]
 }

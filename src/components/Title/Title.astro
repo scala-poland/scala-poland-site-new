@@ -1,16 +1,133 @@
 ---
-import CSS from './Title.module.scss';
+import { Icon } from 'astro-icon/components';
+import type { TitleVariantsType, TitleIconsType } from '@domain/types';
+import { TITLE_VARIANTS } from '@domain/constants';
+
 interface Props {
-	title: string;
+  title: string;
+  variant?: TitleVariantsType;
+  icon?: TitleIconsType;
 }
 
-const { title } = Astro.props;
+const createHeadingElementTag = (variant: TitleVariantsType) => {
+  switch (variant) {
+    case TITLE_VARIANTS.extraLargeUnderline:
+      return 'h1';
+    case TITLE_VARIANTS.largeUnderline:
+      return 'h2';
+    case TITLE_VARIANTS.mediumUnderline || TITLE_VARIANTS.medium:
+      return 'h3';
+    case TITLE_VARIANTS.small:
+      return 'h4';
+    default:
+      return 'h3';
+  }
+};
+
+const { title, variant = TITLE_VARIANTS.medium, icon } = Astro.props;
+
+const Heading = createHeadingElementTag(variant);
 ---
 
-<div>
-		<h2 class={CSS.title}>
-			{title}
-		</h2>
+<div class="root">
+  {
+    icon && (
+      <div class="iconContainer">
+        <div class="icon">
+          <Icon name={icon} width={56} height={56} />
+        </div>
+      </div>
+    )
+  }
+  <Heading class:list={['title', variant]}>{title}</Heading>
 </div>
+
 <style lang="scss">
+  @import '@styles/common-style.scss';
+  .root {
+    padding: 1rem 0;
+    color: $color-black-200;
+    text-align: center;
+  }
+
+  .iconContainer {
+    position: relative;
+    width: 49px;
+    height: 49px;
+    background-color: $color-red-semitransparent;
+    margin: 0 auto;
+    border-radius: 50%;
+    transform: translateX(-15%);
+  }
+
+  .icon {
+    transform: translate(30%, -30%);
+  }
+
+  .title {
+    position: relative;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 6px 0;
+
+    @include screen-md-minus {
+      font-size: 26px;
+    }
+  }
+
+  .small {
+    font-size: 24px;
+
+    @include screen-md-minus {
+      font-size: 20px;
+    }
+  }
+
+  .mediumUnderline {
+    font-weight: 500;
+    padding: 10px 0;
+    color: $color-black-100;
+
+    @include before-underline($color-red-100, 0, 0, 50px);
+  }
+
+  .largeUnderline {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 116%;
+
+    @include before-underline($color-red-100, 0, 50%, 64px);
+
+    &:before {
+      transform: translateX(-50%);
+    }
+
+    @include screen-md-minus {
+      font-size: 42px;
+    }
+
+    @include screen-xs {
+      font-size: 32px;
+      line-height: 110%;
+    }
+  }
+
+  .extraLargeUnderline {
+    font-size: 82px;
+    font-weight: 700;
+    line-height: 102%;
+    text-align: left;
+    color: $color-neutral-100;
+    padding-bottom: 30px;
+    @include before-underline($color-red-100, 0, 0, 93px, 2px);
+
+    @include screen-md-minus {
+      font-size: 68px;
+    }
+
+    @include screen-xs {
+      font-size: 56px;
+      line-height: 110%;
+    }
+  }
 </style>
