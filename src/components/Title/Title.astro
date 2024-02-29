@@ -69,10 +69,18 @@ const Heading = createHeadingElementTag(variant);
     font-size: 30px;
     font-weight: 600;
     padding: 6px 0;
+
+    @include screen-md-minus {
+      font-size: 26px;
+    }
   }
 
   .small {
     font-size: 24px;
+
+    @include screen-md-minus {
+      font-size: 20px;
+    }
   }
 
   .mediumUnderline {
@@ -94,8 +102,12 @@ const Heading = createHeadingElementTag(variant);
       transform: translateX(-50%);
     }
 
+    @include screen-md-minus {
+      font-size: 42px;
+    }
+
     @include screen-xs {
-      font-size: 48px;
+      font-size: 32px;
       line-height: 110%;
     }
   }
@@ -109,8 +121,12 @@ const Heading = createHeadingElementTag(variant);
     padding-bottom: 30px;
     @include before-underline($color-red-100, 0, 0, 93px, 2px);
 
+    @include screen-md-minus {
+      font-size: 68px;
+    }
+
     @include screen-xs {
-      font-size: 58px;
+      font-size: 56px;
       line-height: 110%;
     }
   }
