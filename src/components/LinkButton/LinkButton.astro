@@ -1,0 +1,84 @@
+---
+import { Icon } from 'astro-icon/components';
+import { TITLE_VARIANTS } from '@domain/constants';
+import Title from '@components/Title/Title.astro';
+
+interface Props {
+  href: string;
+  title: string;
+  class?: string;
+  icon?: string;
+}
+const { href, icon, title, class: className, ...rest } = Astro.props;
+
+const showLine = Boolean(!icon);
+---
+
+<a
+  href="https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA"
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={['link', { line: showLine }, className]}
+  {...rest}
+>
+  {icon && <Icon name={icon} width={64} height={64} />}
+  <div class="content">
+    <Title title={title} variant={TITLE_VARIANTS.small} />
+    <p>{href}</p>
+  </div>
+  <div class="arrow">
+    <Icon name="arrow" width={18} />
+  </div>
+</a>
+
+<style lang="scss">
+  @import '@styles/common-style.scss';
+
+  .link {
+    position: relative;
+    height: 112px;
+    @include flex-container(flex-start, center, row, 10px);
+    background-color: $color-gray-100;
+    border-radius: 8px;
+    padding: 30px;
+
+    &:hover {
+      background-color: darken($color-gray-100, 3%);
+    }
+
+    @include screen-sm-minus {
+      max-width: 100%;
+      padding: 16px;
+    }
+  }
+
+  .content {
+    @include flex-container(flex-start, flex-start, column, 4px);
+    max-width: 90%;
+  }
+
+  .line {
+    @include before-underline($color-gray-200, 30%, 0, 4px, 40%);
+
+    &:before {
+      border-radius: 0 8px 8px 0;
+    }
+  }
+
+  p {
+    max-width: 90%;
+    color: $color-gray-300;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .arrow {
+    height: 100%;
+    padding-bottom: 8px;
+    border: 1px solid red;
+
+    @include flex-container(flex-end, flex-end, column);
+  }
+</style>

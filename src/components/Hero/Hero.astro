@@ -89,6 +89,7 @@ const bgUrl = `url(${hero_bg.src})`;
 
   .titleAndDescription {
     @include flex-container(flex-start, start, column);
+    margin-top: 16px;
     @include screen-md-minus {
       max-width: 70%;
     }
@@ -104,6 +105,7 @@ const bgUrl = `url(${hero_bg.src})`;
     line-height: 35px;
     letter-spacing: -0.5px;
     text-align: left;
+    padding-top: 8px;
 
     @include screen-md {
       font-size: 18px;
@@ -116,7 +118,6 @@ const bgUrl = `url(${hero_bg.src})`;
 
   a {
     @include flex-container(flex-start, center, row, 0.5rem);
-    text-decoration: none;
     background-color: $color-neutral-100;
     padding: 12px;
     border-radius: 8px;
@@ -124,6 +125,9 @@ const bgUrl = `url(${hero_bg.src})`;
     line-height: 24px;
     font-weight: 600;
     color: $color-black-200;
+    &:hover {
+      background-color: darken($color-neutral-100, 10%);
+    }
 
     @include screen-xs {
       font-size: 12px;

@@ -4,13 +4,15 @@ import Hero from '@components/Hero/Hero.astro';
 import Introduction from '@components/Introduction/Introduction.astro';
 import { TITLE_ICONS, TITLE_VARIANTS } from '@domain/constants.ts';
 import Layout from '@layouts/Layout.astro';
+import LearningMaterials from '@components/LearningMaterials/LearningMaterials.astro';
 ---
 
 <Layout title="Polish Scala Comunity">
   <main>
     <Hero />
     <Introduction />
-    <Title title="Learning materials" icon={TITLE_ICONS.email} />
+    <LearningMaterials />
+
     <Title title="Companies using Scala" icon={TITLE_ICONS.handshake} />
     <Title title="Meetup groups" icon={TITLE_ICONS.calendar} />
     <Title title="Conferences" icon={TITLE_ICONS.userGroup} />

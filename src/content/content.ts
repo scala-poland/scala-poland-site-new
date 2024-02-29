@@ -25,6 +25,10 @@ const content = {
       title: 'Iterators blog',
       link: 'https://www.iteratorshq.com/blog/category/tech-blog/',
     },
+    {
+      title: 'Iterators blog',
+      link: 'https://www.iteratorshq.com/blog/category/tech-blog/',
+    },
   ],
 
   companiesUsingScala: {
