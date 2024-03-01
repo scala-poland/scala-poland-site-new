@@ -36,8 +36,7 @@ const showLine = Boolean(!icon);
 
   .link {
     position: relative;
-    height: 112px;
-    @include flex-container(flex-start, center, row, 10px);
+    @include flex-container(space-between, stretch, row, 12px);
     background-color: $color-gray-100;
     border-radius: 8px;
     padding: 30px;
@@ -46,8 +45,13 @@ const showLine = Boolean(!icon);
       background-color: darken($color-gray-100, 3%);
     }
 
-    @include screen-sm-minus {
-      max-width: 100%;
+    @include screen-sm {
+      max-width: 45svw;
+      padding: 16px;
+    }
+
+    @include screen-xs {
+      max-width: 90svw;
       padding: 16px;
     }
   }
@@ -66,18 +70,20 @@ const showLine = Boolean(!icon);
   }
 
   p {
-    max-width: 90%;
+    // max-width: 90%;
     color: $color-gray-300;
     font-size: 16px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    @include screen-sm-minus {
+      max-width: 85%;
+    }
   }
 
   .arrow {
     height: 100%;
-    padding-bottom: 8px;
-    border: 1px solid red;
+    padding-bottom: 6px;
 
     @include flex-container(flex-end, flex-end, column);
   }

@@ -3,7 +3,7 @@ interface Props {
   maxWidth?: number;
   class?: string;
 }
-const { maxWidth = 1600, class: className, ...rest } = Astro.props;
+const { maxWidth = 1464, class: className, ...rest } = Astro.props;
 
 const maxWidthDimension = `${maxWidth}px`;
 ---
@@ -17,7 +17,9 @@ const maxWidthDimension = `${maxWidth}px`;
 
   .root {
     max-width: var(--maxWidthDimension);
+    width: 100%;
     margin: 0 auto;
+    padding: 0 32px;
 
     @include screen-md-minus {
       padding: 0 16px;

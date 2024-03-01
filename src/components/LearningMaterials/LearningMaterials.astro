@@ -6,7 +6,7 @@ import { TITLE_VARIANTS, TITLE_ICONS } from '@domain/constants';
 import Container from '@components/Container/Container.astro';
 ---
 
-<Container class="container">
+<Container>
   <Title title="Learning materials" icon={TITLE_ICONS.email} />
   <div class="content">
     {content.learningMaterials.map((element) => <LinkButton href={element.link} title={element.title} />)}
@@ -15,17 +15,13 @@ import Container from '@components/Container/Container.astro';
   <style lang="scss">
     @import '@styles/common-style.scss';
 
-    .container {
-      // border: 1px solid red;
-    }
-
     .content {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      width: 100%;
+      width: auto;
 
-      @include screen-sm-minus {
+      @include screen-xs {
         max-width: 100svw;
         grid-template-columns: 1fr;
       }
