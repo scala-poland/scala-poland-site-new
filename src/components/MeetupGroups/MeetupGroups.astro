@@ -1,0 +1,146 @@
+---
+import { Image } from 'astro:assets';
+
+import content from '@content/content';
+import Title from '@components/Title/Title.astro';
+import LinkButton from '@components/LinkButton/LinkButton.astro';
+import { TITLE_VARIANTS, TITLE_ICONS } from '@domain/constants';
+import Container from '@components/Container/Container.astro';
+import meetupComputer from '@images/meetup-computer.png';
+import meetupGroup from '@images/meetup-group.png';
+---
+
+<Container>
+  <div class="root">
+    <div class="images">
+      <Image src={meetupComputer} alt="Go to slack" class="computerImage" />
+      <Image src={meetupGroup} alt="Go to slack" class="groupImage" />
+    </div>
+    <div class="title">
+      <Title title="Meetup groups" icon={TITLE_ICONS.calendar} />
+    </div>
+    <div class="meetupGroups">
+      <ul>
+        {
+          content.meetupGroups.map(({ link, title, icon }) => (
+            <li>
+              <LinkButton icon={icon} href={link} title={title} variant="secondary" />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</Container>
+
+<style lang="scss">
+  @import '@styles/common-style.scss';
+
+  .root {
+    padding-top: 16px;
+    // padding-bottom: 10%;
+    // min-height: 100svw;
+
+    display: grid;
+    gap: 0 70px;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+      'images title'
+      'images meetupList'
+      '. meetupList';
+
+    @include screen-lg-minus {
+      grid-template-columns: 1fr auto;
+      border: 3px solid green;
+      gap: 12px 30px;
+      grid-template-columns: 1fr 1.1fr;
+      grid-template-rows: repeat(4, auto);
+      grid-template-areas:
+        'title  title'
+        'images meetupList'
+        'images meetupList'
+        '. meetupList';
+    }
+
+    @include screen-xs {
+      grid-template-columns: 100%;
+      grid-template-rows: auto 250px auto;
+      grid-template-areas:
+        'title'
+        'images '
+        'meetupList';
+      row-gap: 8px;
+    }
+
+    .images {
+      grid-area: images;
+      position: relative;
+
+      @include flex-container(flex-start, flex-start, row, 0);
+
+      min-height: 730px;
+
+      @include screen-lg-minus {
+        min-height: 40svw;
+      }
+
+      @include screen-xs {
+        @include flex-container(center, center, row, 0);
+      }
+    }
+
+    .title {
+      grid-area: title;
+    }
+
+    .computerImage {
+      @include screen-lg-minus {
+        width: auto;
+        height: 70%;
+      }
+
+      @include screen-xs {
+        position: relative;
+        width: 200px;
+        height: auto;
+        left: 40px;
+        top: -20px;
+      }
+    }
+
+    .groupImage {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      @include screen-lg-minus {
+        width: 50%;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+      }
+
+      @include screen-xs {
+        position: relative;
+        bottom: -10%;
+        left: -40px;
+        width: auto;
+        height: 80%;
+      }
+    }
+
+    .meetupGroups {
+      grid-area: meetupList;
+      dispaly: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      justify-content: center;
+
+      :not(:last-child) {
+        border-bottom: 1px solid #e1e3e8;
+      }
+    }
+  }
+</style>

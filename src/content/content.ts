@@ -81,27 +81,42 @@ const content = {
 
   meetupGroups: [
     {
-      icon: 'iconName',
+      icon: 'email',
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'iconName',
+      icon: 'calendar',
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'iconName',
+      icon: 'email',
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'iconName',
+      icon: 'email',
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'iconName',
+      icon: 'email',
+      title: 'Wroclaw Scala User Group',
+      link: 'https://www.iteratorshq.com/blog/category...',
+    },
+    {
+      icon: 'email',
+      title: 'Wroclaw Scala User Group',
+      link: 'https://www.iteratorshq.com/blog/category...',
+    },
+    {
+      icon: 'email',
+      title: 'Wroclaw Scala User Group',
+      link: 'https://www.iteratorshq.com/blog/category...',
+    },
+    {
+      icon: 'email',
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },

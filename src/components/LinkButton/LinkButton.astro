@@ -8,8 +8,9 @@ interface Props {
   title: string;
   class?: string;
   icon?: string;
+  variant?: 'primary' | 'secondary';
 }
-const { href, icon, title, class: className, ...rest } = Astro.props;
+const { href, icon, title, variant, class: className, ...rest } = Astro.props;
 
 const showLine = Boolean(!icon);
 ---
@@ -18,13 +19,15 @@ const showLine = Boolean(!icon);
   href="https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA"
   target="_blank"
   rel="noopener noreferrer"
-  class:list={['link', { line: showLine }, className]}
+  class:list={['link', { line: showLine }, { secondary: variant === 'secondary' }, className]}
   {...rest}
 >
-  {icon && <Icon name={icon} width={64} height={64} />}
-  <div class="content">
-    <Title title={title} variant={TITLE_VARIANTS.small} />
-    <p>{href}</p>
+  <div class="iconAndContentWrapper">
+    {icon && <Icon name={icon} width={64} height={64} />}
+    <div class="content">
+      <Title title={title} variant={TITLE_VARIANTS.small} />
+      <p>{href}</p>
+    </div>
   </div>
   <div class="arrow">
     <Icon name="arrow" width={18} />
@@ -37,32 +40,57 @@ const showLine = Boolean(!icon);
   .link {
     position: relative;
     @include flex-container(space-between, stretch, row, 12px);
-    background-color: $color-gray-100;
+    background-color: $color-grey-100;
     border-radius: 8px;
     padding: 30px;
 
     &:hover {
-      background-color: darken($color-gray-100, 3%);
+      background-color: darken($color-grey-100, 3%);
     }
 
     @include screen-sm {
-      max-width: 45svw;
       padding: 16px;
     }
 
     @include screen-xs {
-      max-width: 90svw;
+      max-width: 100%;
+      padding: 12px;
+    }
+  }
+
+  .secondary {
+    background-color: $color-neutral-100;
+    padding: 32px 0;
+    border-radius: 0;
+
+    &:hover {
+      background-color: $color-grey-100;
+    }
+
+    @include screen-xs {
+      max-width: 100%;
       padding: 16px;
+    }
+  }
+
+  .iconAndContentWrapper {
+    @include flex-container(flex-start, flex-start, row, 20px);
+    max-width: 92%;
+    flex-shrink: 1;
+
+    @include screen-xs {
+      gap: 12px;
     }
   }
 
   .content {
     @include flex-container(flex-start, flex-start, column, 4px);
-    max-width: 90%;
+    flex-shrink: 2;
+    max-width: 100%;
   }
 
   .line {
-    @include before-underline($color-gray-200, 30%, 0, 4px, 40%);
+    @include before-underline($color-grey-200, 30%, 0, 4px, 40%);
 
     &:before {
       border-radius: 0 8px 8px 0;
@@ -70,21 +98,22 @@ const showLine = Boolean(!icon);
   }
 
   p {
-    // max-width: 90%;
-    color: $color-gray-300;
+    max-width: 100%;
+    color: $color-grey-300;
     font-size: 16px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
     @include screen-sm-minus {
-      max-width: 85%;
+      font-size: 12px;
     }
   }
 
   .arrow {
-    height: 100%;
-    padding-bottom: 6px;
-
     @include flex-container(flex-end, flex-end, column);
+    padding-bottom: 6px;
+    align-self: stretch;
+    justify-self: stretch;
   }
 </style>

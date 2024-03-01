@@ -2,6 +2,10 @@
 @import 'common-responsive.scss';
 @import 'common-font.scss';
 
+$side-container-padding: 32px;
+$side-container-padding-lg-minus: 24px;
+$side-container-padding-md-minus: 16px;
+
 @mixin flex-container(
   $justify-content: 'flex-start',
   $align-items: 'stretch',

@@ -6,25 +6,30 @@ import { TITLE_VARIANTS, TITLE_ICONS } from '@domain/constants';
 import Container from '@components/Container/Container.astro';
 ---
 
-<Container>
+<Container class="meetupContainer">
   <Title title="Learning materials" icon={TITLE_ICONS.email} />
   <div class="content">
-    {content.learningMaterials.map((element) => <LinkButton href={element.link} title={element.title} />)}
+    {content.learningMaterials.map(({ link, title }) => <LinkButton href={link} title={title} />)}
   </div>
-
-  <style lang="scss">
-    @import '@styles/common-style.scss';
-
-    .content {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      width: auto;
-
-      @include screen-xs {
-        max-width: 100svw;
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </Container>
+
+<style lang="scss">
+  @import '@styles/common-style.scss';
+
+  .meetupContainer {
+    padding-top: 16px;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    // max-width: 100%;
+    // border: 2px solid red;
+
+    @include screen-xs {
+      // max-width: 100%;
+      grid-template-columns: 100%;
+    }
+  }
+</style>

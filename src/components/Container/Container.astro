@@ -8,21 +8,28 @@ const { maxWidth = 1464, class: className, ...rest } = Astro.props;
 const maxWidthDimension = `${maxWidth}px`;
 ---
 
-<div class:list={['root', className]} {...rest}>
+<div class:list={['orginalContainer', className]} {...rest}>
   <slot />
 </div>
 
 <style lang="scss" define:vars={{ maxWidthDimension }}>
   @import '@styles/common-style.scss';
 
-  .root {
+  //interesting bug - if wee pass some class here as props we must remember to add unique names if not there is issue becouse inherit all classes from parent
+  .orginalContainer {
     max-width: var(--maxWidthDimension);
     width: 100%;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 $side-container-padding;
+    // border: 3px solid blue;
+
+    @include screen-lg-minus {
+      max-width: 100svw;
+      padding: 0 $side-container-padding-lg-minus;
+    }
 
     @include screen-md-minus {
-      padding: 0 16px;
+      padding: 0 $side-container-padding-md-minus;
     }
   }
 </style>
