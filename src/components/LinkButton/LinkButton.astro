@@ -2,21 +2,25 @@
 import { Icon } from 'astro-icon/components';
 import { TITLE_VARIANTS } from '@domain/constants';
 import Title from '@components/Title/Title.astro';
+import { Image } from 'astro:assets';
+import type { ImagesType, LinkButtonVariantsType } from '@domain/types';
 
 interface Props {
   href: string;
   title: string;
   class?: string;
   icon?: string;
-  variant?: 'primary' | 'secondary';
+  image?: ImagesType;
+  variant?: LinkButtonVariantsType;
 }
-const { href, icon, title, variant, class: className, ...rest } = Astro.props;
+const { href, icon, title, variant, image, class: className, ...rest } = Astro.props;
 
-const showLine = Boolean(!icon);
+const showLine = Boolean(!icon && !image);
+const linkWidth = !icon && !image ? '100%' : '80%';
 ---
 
 <a
-  href="https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA"
+  href={href}
   target="_blank"
   rel="noopener noreferrer"
   class:list={['link', { line: showLine }, { secondary: variant === 'secondary' }, className]}
@@ -24,6 +28,7 @@ const showLine = Boolean(!icon);
 >
   <div class="iconAndContentWrapper">
     {icon && <Icon name={icon} width={64} height={64} />}
+    {!icon && image && <Image src={image} alt="logo image" width={64} height={64} class="image" />}
     <div class="content">
       <Title title={title} variant={TITLE_VARIANTS.small} />
       <p>{href}</p>
@@ -34,7 +39,7 @@ const showLine = Boolean(!icon);
   </div>
 </a>
 
-<style lang="scss">
+<style lang="scss" define:vars={{ linkWidth }}>
   @import '@styles/common-style.scss';
 
   .link {
@@ -98,7 +103,7 @@ const showLine = Boolean(!icon);
   }
 
   p {
-    max-width: 100%;
+    max-width: var(--linkWidth);
     color: $color-grey-300;
     font-size: 16px;
     white-space: nowrap;

@@ -1,4 +1,8 @@
-const content = {
+import { FILTERS } from '@domain/constants';
+import type { Content } from '@domain/types';
+import { IMAGES } from '@images/images';
+
+const content: Content = {
   heroDescription:
     ' We, the members of the Polish Scala Community, are a group of passionate programmers united by our love for the Scala programming language. As a community, we strive to promote the use and understanding of Scala and to create a supportive and inclusive space where Scala programmers can come together to learn, share, and grow.',
   introductionText:
@@ -32,91 +36,91 @@ const content = {
   ],
 
   companiesUsingScala: {
-    filters: ['ALL', '#Warszawa', '#Łódź', '#Poznań', '#remote', '#product', '#services'],
+    filters: Object.values(FILTERS),
     companies: [
       {
         icon: '#',
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: ['#Warszawa', '#remote', '#product'],
+        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
         icon: '#',
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: ['#Warszawa', '#remote', '#product'],
+        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
         icon: '#',
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: ['#Warszawa', '#remote', '#product'],
+        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
         icon: '#',
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: ['#Warszawa', '#remote', '#product'],
+        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
         icon: '#',
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: ['#Warszawa', '#remote', '#product'],
+        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
         icon: '#',
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: ['#Warszawa', '#remote', '#product'],
+        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
     ],
   },
 
   meetupGroups: [
     {
-      icon: 'email',
+      image: IMAGES.netguruLogo,
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'calendar',
+      image: IMAGES.netguruLogo,
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'email',
+      image: IMAGES.netguruLogo,
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'email',
+      image: IMAGES.netguruLogo,
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'email',
+      image: IMAGES.netguruLogo,
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'email',
+      image: IMAGES.netguruLogo,
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'email',
+      image: IMAGES.netguruLogo,
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
-      icon: 'email',
+      image: IMAGES.netguruLogo,
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
@@ -133,6 +137,7 @@ const content = {
       title: 'Lambda Days',
       description:
         "10th-anniversary edition! Let's celebrate together this one-of-a-kind experience in the functional world.",
+      image: 'TODO',
     },
   ],
 };

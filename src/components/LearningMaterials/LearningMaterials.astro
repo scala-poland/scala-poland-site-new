@@ -2,14 +2,15 @@
 import content from '@content/content';
 import Title from '@components/Title/Title.astro';
 import LinkButton from '@components/LinkButton/LinkButton.astro';
-import { TITLE_VARIANTS, TITLE_ICONS } from '@domain/constants';
+import { TITLE_ICONS } from '@domain/constants';
 import Container from '@components/Container/Container.astro';
+import type { LearningMaterials } from '@domain/types';
 ---
 
 <Container class="meetupContainer">
   <Title title="Learning materials" icon={TITLE_ICONS.email} />
   <div class="content">
-    {content.learningMaterials.map(({ link, title }) => <LinkButton href={link} title={title} />)}
+    {content.learningMaterials.map(({ link, title }: LearningMaterials) => <LinkButton href={link} title={title} />)}
   </div>
 </Container>
 
@@ -24,11 +25,8 @@ import Container from '@components/Container/Container.astro';
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    // max-width: 100%;
-    // border: 2px solid red;
 
     @include screen-xs {
-      // max-width: 100%;
       grid-template-columns: 100%;
     }
   }

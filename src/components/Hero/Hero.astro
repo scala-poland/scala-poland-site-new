@@ -4,10 +4,8 @@ import { Image } from 'astro:assets';
 import Title from '@components/Title/Title.astro';
 import { TITLE_VARIANTS } from '@domain/constants';
 import hero_bg from '@images/hero_bg.png';
-import scalaImage from '@images/scala.png';
-import booksImage from '@images/books.png';
-import slackImage from '@images/slack.png';
 import content from '@content/content';
+import { IMAGES } from '@images/images';
 
 const bgUrl = `url(${hero_bg.src})`;
 ---
@@ -15,7 +13,7 @@ const bgUrl = `url(${hero_bg.src})`;
 <section>
   <Container class="container">
     <div class="mainContainer">
-      <Image src={scalaImage} alt="Scala logo" />
+      <Image src={IMAGES.scala} alt="Scala logo" />
       <div class="titleAndDescription">
         <Title title="Polish Scala Community" variant={TITLE_VARIANTS.extraLargeUnderline} />
         <p>{content.heroDescription}</p>
@@ -25,11 +23,11 @@ const bgUrl = `url(${hero_bg.src})`;
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Image src={slackImage} alt="Go to slack" />
+        <Image src={IMAGES.slack} alt="Go to slack" />
         WE MEET ON SLACK, JOIN US TODAY!
       </a>
     </div>
-    <Image src={booksImage} alt="Books image" class="booksImage" />
+    <Image src={IMAGES.books} alt="Books image" class="booksImage" />
   </Container>
 </section>
 
