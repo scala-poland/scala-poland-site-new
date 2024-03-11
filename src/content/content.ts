@@ -131,13 +131,13 @@ const content: Content = {
       title: 'Scala Conference',
       description:
         'Get ready for two days of immersive functional programming experience with the great community. Learn from established IT experts and practitioners, and meet like-minded individuals in your field. All Scalarians will tell you that the connections you can make at the conference are one of the most valuable aspects of attending Scalar. Join us, exchange ideas, and make friends! All of these while getting to know functional programming trends and use cases.',
-      image: 'TODO',
+      image: IMAGES.meetupComputer, //TODO
     },
     {
       title: 'Lambda Days',
       description:
         "10th-anniversary edition! Let's celebrate together this one-of-a-kind experience in the functional world.",
-      image: 'TODO',
+      image: IMAGES.meetupGroup, //TODO
     },
   ],
 };
