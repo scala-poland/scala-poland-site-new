@@ -35,10 +35,10 @@ import type { MeetupGroups } from '@domain/types';
 
 <style lang="scss">
   @import '@styles/common-style.scss';
+  // @import '@styles/common-scrollbar.scss';
 
   .root {
     padding-top: 16px;
-
     display: grid;
     gap: 0 70px;
     grid-template-columns: 1.2fr 1fr;
@@ -127,6 +127,7 @@ import type { MeetupGroups } from '@domain/types';
     }
 
     .meetupGroups {
+      padding-right: 8px;
       grid-area: meetupList;
       display: grid;
       grid-template-columns: 1fr;
@@ -135,6 +136,11 @@ import type { MeetupGroups } from '@domain/types';
 
       :not(:last-child) {
         border-bottom: 1px solid #e1e3e8;
+      }
+
+      @include screen-sm-plus {
+        max-height: 625px;
+        @include vertical-scrollbar();
       }
     }
   }
