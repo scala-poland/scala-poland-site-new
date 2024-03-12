@@ -1,0 +1,33 @@
+---
+import content from '@content/content';
+import Title from '@components/Title/Title.astro';
+import LinkButton from '@components/LinkButton/LinkButton.astro';
+import { TITLE_ICONS } from '@domain/constants';
+import Container from '@components/Container/Container.astro';
+import type { LearningMaterials } from '@domain/types';
+---
+
+<Container class="meetupContainer">
+  <Title title="Learning materials" icon={TITLE_ICONS.email} />
+  <div class="content">
+    {content.learningMaterials.map(({ link, title }: LearningMaterials) => <LinkButton href={link} title={title} />)}
+  </div>
+</Container>
+
+<style lang="scss">
+  @import '@styles/common-style.scss';
+
+  .meetupContainer {
+    padding-top: 16px;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include screen-xs {
+      grid-template-columns: 100%;
+    }
+  }
+</style>

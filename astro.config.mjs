@@ -4,5 +4,10 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), icon()],
+  integrations: [
+    react(),
+    icon({
+      iconDir: 'src/assets/icons',
+    }),
+  ],
 });

@@ -1,0 +1,39 @@
+@mixin scrollbar($thumb-color, $track-color) {
+  cursor: auto;
+  scrollbar-color: $thumb-color $track-color;
+  scrollbar-gutter: stable;
+
+  &::-webkit-scrollbar {
+    background-color: $track-color;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $track-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    border-radius: 1.1rem;
+  }
+  &:-moz-scrollbar-thumb {
+    border-radius: 1.1rem;
+  }
+}
+
+@mixin vertical-scrollbar($thumb-color: $color-grey-200, $track-color: $color-grey-100, $width: 0.3rem) {
+  @include scrollbar($thumb-color, $track-color);
+  overflow-y: auto;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+}
+
+@mixin horizontal-scrollbar($thumb-color: $color-grey-200, $track-color: $color-grey-100, $height: 0.3rem) {
+  @include scrollbar($thumb-color, $track-color);
+  overflow-x: auto;
+  scrollbar-height: thin;
+
+  &::-webkit-scrollbar {
+    height: $height;
+  }
+}

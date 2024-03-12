@@ -1,18 +1,22 @@
 ---
 import Title from '@components/Title/Title.astro';
 import Hero from '@components/Hero/Hero.astro';
+import MeetupGroups from '@components/MeetupGroups/MeetupGroups.astro';
 import Introduction from '@components/Introduction/Introduction.astro';
 import { TITLE_ICONS, TITLE_VARIANTS } from '@domain/constants.ts';
 import Layout from '@layouts/Layout.astro';
+import LearningMaterials from '@components/LearningMaterials/LearningMaterials.astro';
 ---
 
 <Layout title="Polish Scala Comunity">
   <main>
     <Hero />
     <Introduction />
-    <Title title="Learning materials" icon={TITLE_ICONS.email} />
+    <LearningMaterials />
+
     <Title title="Companies using Scala" icon={TITLE_ICONS.handshake} />
-    <Title title="Meetup groups" icon={TITLE_ICONS.calendar} />
+
+    <MeetupGroups />
     <Title title="Conferences" icon={TITLE_ICONS.userGroup} />
     <Title title="Scala Conference" variant={TITLE_VARIANTS.mediumUnderline} />
     <Title title="Iterators" variant={TITLE_VARIANTS.small} />
@@ -23,8 +27,7 @@ import Layout from '@layouts/Layout.astro';
   @import '@styles/common-style.scss';
   main {
     @include flex-container(flex-start, center, column, 68px);
-    margin: auto;
-    max-width: 1600px;
+    overflow-x: hidden;
     line-height: 1.6;
   }
 </style>

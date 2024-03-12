@@ -1,0 +1,125 @@
+---
+import { Icon } from 'astro-icon/components';
+import { TITLE_VARIANTS } from '@domain/constants';
+import Title from '@components/Title/Title.astro';
+import { Image } from 'astro:assets';
+import type { ImagesType, LinkButtonVariantsType } from '@domain/types';
+
+interface Props {
+  href: string;
+  title: string;
+  class?: string;
+  icon?: string;
+  image?: ImagesType;
+  variant?: LinkButtonVariantsType;
+}
+const { href, icon, title, variant, image, class: className, ...rest } = Astro.props;
+
+const showLine = Boolean(!icon && !image);
+const linkWidth = !icon && !image ? '100%' : '80%';
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={['link', { line: showLine }, { secondary: variant === 'secondary' }, className]}
+  {...rest}
+>
+  <div class="iconAndContentWrapper">
+    {icon && <Icon name={icon} width={64} height={64} />}
+    {!icon && image && <Image src={image} alt="logo image" width={64} height={64} class="image" />}
+    <div class="content">
+      <Title title={title} variant={TITLE_VARIANTS.small} />
+      <p>{href}</p>
+    </div>
+  </div>
+  <div class="arrow">
+    <Icon name="arrow" width={18} />
+  </div>
+</a>
+
+<style lang="scss" define:vars={{ linkWidth }}>
+  @import '@styles/common-style.scss';
+
+  .link {
+    position: relative;
+    @include flex-container(space-between, stretch, row, 12px);
+    background-color: $color-grey-100;
+    border-radius: 8px;
+    padding: 30px;
+
+    &:hover {
+      background-color: darken($color-grey-100, 3%);
+    }
+
+    @include screen-sm {
+      padding: 16px;
+    }
+
+    @include screen-xs {
+      max-width: 100%;
+      padding: 12px;
+    }
+  }
+
+  .secondary {
+    background-color: $color-neutral-100;
+    padding: 32px 0;
+    border-radius: 0;
+
+    &:hover {
+      background-color: $color-grey-100;
+      border-radius: 0;
+    }
+
+    @include screen-xs {
+      max-width: 100%;
+      padding: 16px;
+    }
+  }
+
+  .iconAndContentWrapper {
+    @include flex-container(flex-start, flex-start, row, 20px);
+    max-width: 92%;
+    flex-shrink: 1;
+
+    @include screen-xs {
+      gap: 12px;
+    }
+  }
+
+  .content {
+    @include flex-container(flex-start, flex-start, column, 4px);
+    flex-shrink: 2;
+    max-width: 100%;
+  }
+
+  .line {
+    @include before-underline($color-grey-200, 30%, 0, 4px, 40%);
+
+    &:before {
+      border-radius: 0 8px 8px 0;
+    }
+  }
+
+  p {
+    max-width: var(--linkWidth);
+    color: $color-grey-300;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include screen-sm-minus {
+      font-size: 12px;
+    }
+  }
+
+  .arrow {
+    @include flex-container(flex-end, flex-end, column);
+    padding-bottom: 6px;
+    align-self: stretch;
+    justify-self: stretch;
+  }
+</style>

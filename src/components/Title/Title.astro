@@ -45,7 +45,6 @@ const Heading = createHeadingElementTag(variant);
 <style lang="scss">
   @import '@styles/common-style.scss';
   .root {
-    padding: 1rem 0;
     color: $color-black-200;
     text-align: center;
   }
@@ -76,10 +75,13 @@ const Heading = createHeadingElementTag(variant);
   }
 
   .small {
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    line-height: normal;
 
     @include screen-md-minus {
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 
@@ -95,6 +97,7 @@ const Heading = createHeadingElementTag(variant);
     font-size: 52px;
     font-weight: 700;
     line-height: 116%;
+    padding-bottom: 16px;
 
     @include before-underline($color-red-100, 0, 50%, 64px);
 
