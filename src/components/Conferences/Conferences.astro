@@ -20,8 +20,8 @@ import Container from '@components/Container/Container.astro';
             <div class="information1">
               <div class="information">
                 <Title title={title} variant={TITLE_VARIANTS.mediumUnderline} />
+                <p>{description}</p>
               </div>
-              <p>{description}</p>
             </div>
           </div>
         ))
@@ -72,10 +72,15 @@ import Container from '@components/Container/Container.astro';
   }
 
   .information {
-    @include flex-container(center, flex-start, column);
+    //TODO fix scroll container and make reusable scrolll container component, with flex and scrolll some of overflowed content is not visible
+    // @include flex-container(center, flex-start, column);
     padding-right: 8px;
     width: 100%;
-
+    // height: 90%;
+    vertical-align: middle;
+    border: 1px solid red;
+    align-self: center;
+    justify-self: center;
     @include screen-sm-plus {
       @include vertical-scrollbar();
     }
