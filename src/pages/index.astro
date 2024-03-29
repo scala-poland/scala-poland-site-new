@@ -6,6 +6,7 @@ import Introduction from '@components/Introduction/Introduction.astro';
 import { TITLE_ICONS, TITLE_VARIANTS } from '@domain/constants.ts';
 import Layout from '@layouts/Layout.astro';
 import LearningMaterials from '@components/LearningMaterials/LearningMaterials.astro';
+import Conferences from '@components/Conferences/Conferences.astro';
 ---
 
 <Layout title="Polish Scala Comunity">
@@ -17,8 +18,8 @@ import LearningMaterials from '@components/LearningMaterials/LearningMaterials.a
     <Title title="Companies using Scala" icon={TITLE_ICONS.handshake} />
 
     <MeetupGroups />
-    <Title title="Conferences" icon={TITLE_ICONS.userGroup} />
-    <Title title="Scala Conference" variant={TITLE_VARIANTS.mediumUnderline} />
+    <Conferences />
+
     <Title title="Iterators" variant={TITLE_VARIANTS.small} />
   </main>
 </Layout>
