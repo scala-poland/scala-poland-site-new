@@ -1,0 +1,37 @@
+@import '@styles/common-style.scss';
+
+.company {
+  border: 1px solid $color-grey-200;
+  padding: 40px;
+  border-radius: 10px;
+
+  @include screen-sm {
+    padding-bottom: 60px;
+  }
+}
+
+.information {
+  padding-right: 8px;
+
+  display: grid;
+  align-items: start;
+  justify-content: start;
+  gap: 20px;
+}
+
+p {
+  color: $color-grey-600;
+  line-height: 34px;
+}
+
+.companyName {
+  text-align: left;
+}
+
+.tags {
+  color: $color-red-100;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 28px;
+  @include flex-container(flex-start, center, row, 16px);
+}

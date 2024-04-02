@@ -39,42 +39,41 @@ const content: Content = {
     filters: Object.values(FILTERS),
     companies: [
       {
-        icon: '#',
+        icon: 'arrow',
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
         tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
-        icon: '#',
+        image: IMAGES.iterators,
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
         tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
-        icon: '#',
+        image: IMAGES.netguru,
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
         tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
-        icon: '#',
+        image: IMAGES.allegro,
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
         tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
-        icon: '#',
+        image: IMAGES.netguruLogo,
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
         tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
-        icon: '#',
         title: 'Iterators',
         description:
           "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",

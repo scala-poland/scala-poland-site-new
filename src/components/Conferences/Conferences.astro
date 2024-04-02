@@ -4,6 +4,7 @@ import content from '@content/content';
 import Title from '@components/Title/Title.astro';
 import { TITLE_ICONS, TITLE_VARIANTS } from '@domain/constants';
 import Container from '@components/Container/Container.astro';
+import type { Conferences } from '@domain/types';
 ---
 
 <section class="conferences">
@@ -11,7 +12,7 @@ import Container from '@components/Container/Container.astro';
     <Title title="Conferences" icon={TITLE_ICONS.userGroup} />
     <div class="content">
       {
-        content.conferences.map(({ title, description, image }) => (
+        content.conferences.map(({ title, description, image }: Conferences) => (
           <div class="conference">
             <Image src={image} alt="Go to slack" class="groupImage" height={410} class="image" />
             <section class="information">
@@ -48,7 +49,7 @@ import Container from '@components/Container/Container.astro';
 
   .conference {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 'image information';
     gap: 28px;
     padding-bottom: 100px;

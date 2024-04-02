@@ -22,7 +22,8 @@ export interface LearningMaterials {
 }
 
 export interface Companies {
-  icon: string;
+  icon?: string;
+  image?: ImagesType;
   title: string;
   description: string;
   tags: FiltersType[];

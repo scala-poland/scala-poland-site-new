@@ -1,0 +1,41 @@
+@import '@styles/common-style.scss';
+
+.companies {
+  width: 100%;
+  padding: 74px 0 48px 0;
+
+  @include screen-md-minus {
+    padding: 48px 0;
+  }
+}
+
+.filters {
+  @include flex-container(center, center, row, 20px);
+  padding-top: 32px;
+}
+
+.filterButton {
+  color: $color-red-100;
+  background-color: $color-red-transparent;
+  border: 1px solid $color-red-100;
+  border-radius: 8px;
+  padding: 16px 24px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-red-semitransparent;
+  }
+}
+
+.content {
+  padding: 64px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+
+  @include screen-sm-minus {
+    padding: 40px 0;
+  }
+}

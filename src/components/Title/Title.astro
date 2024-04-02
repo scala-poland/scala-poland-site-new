@@ -7,6 +7,7 @@ interface Props {
   title: string;
   variant?: TitleVariantsType;
   icon?: TitleIconsType;
+  class?: string;
 }
 
 const createHeadingElementTag = (variant: TitleVariantsType) => {
@@ -24,7 +25,7 @@ const createHeadingElementTag = (variant: TitleVariantsType) => {
   }
 };
 
-const { title, variant = TITLE_VARIANTS.medium, icon } = Astro.props;
+const { title, variant = TITLE_VARIANTS.medium, icon, class: className, ...rest } = Astro.props;
 
 const Heading = createHeadingElementTag(variant);
 ---
@@ -39,7 +40,7 @@ const Heading = createHeadingElementTag(variant);
       </div>
     )
   }
-  <Heading class:list={['title', variant]}>{title}</Heading>
+  <Heading class:list={['title', variant, className]} {...rest}>{title}</Heading>
 </div>
 
 <style lang="scss">

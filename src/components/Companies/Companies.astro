@@ -1,0 +1,90 @@
+---
+import content from '@content/content';
+import Title from '@components/Title/Title.astro';
+import { TITLE_ICONS } from '@domain/constants';
+import Container from '@components/Container/Container.astro';
+import type { Companies, FiltersType } from '@domain/types';
+import Company from '@components/Company/Company.astro';
+import ReactCompanies from './ReactCompanies';
+//TODO sort filters
+---
+
+<section class="companies">
+  <Container>
+    <Title title="Companies using Scala" icon={TITLE_ICONS.handshake} />
+    <astro-heart>
+      <div class="filters">
+        {
+          content.companiesUsingScala.filters.map((filter: FiltersType) => (
+            <button id={filter} class="filterButton">
+              {filter}
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="content">
+        {
+          content.companiesUsingScala.companies.map(({ image, icon, title, description, tags }: Companies) => (
+            <Company image={image} icon={icon} title={title} description={description} tags={tags} />
+          ))
+        }
+      </div>
+    </astro-heart>
+  </Container>
+</section>
+
+<script>
+  const filtersButtonsArray = document.querySelectorAll('.filterButton');
+
+  filtersButtonsArray.forEach((button) => {
+    button.addEventListener('click', (e: Event) => {
+      const target = e.target as HTMLButtonElement;
+      if (target) console.log(target.id);
+    });
+  });
+</script>
+
+<style lang="scss">
+  @import '@styles/common-style.scss';
+
+  .companies {
+    width: 100%;
+    padding: 74px 0 48px 0;
+
+    @include screen-md-minus {
+      padding: 48px 0;
+    }
+  }
+
+  .filters {
+    @include flex-container(center, center, row, 20px);
+    padding-top: 32px;
+  }
+
+  .filterButton {
+    color: $color-red-100;
+    background-color: $color-red-transparent;
+    border: 1px solid $color-red-100;
+    border-radius: 8px;
+    padding: 16px 24px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-red-semitransparent;
+    }
+  }
+
+  .content {
+    padding: 64px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+
+    @include screen-sm-minus {
+      padding: 40px 0;
+    }
+  }
+</style>
