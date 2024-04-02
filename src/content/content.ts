@@ -139,6 +139,18 @@ const content: Content = {
         "10th-anniversary edition! Let's celebrate together this one-of-a-kind experience in the functional world.",
       image: IMAGES.lambdaDays,
     },
+    {
+      title: 'Lambda Days',
+      description:
+        "10th-anniversary edition! Let's celebrate together this one-of-a-kind experience in the functional world.",
+      image: IMAGES.lambdaDays,
+    },
+    {
+      title: 'Lambda Days',
+      description:
+        "10th-anniversary edition! Let's celebrate together this one-of-a-kind experience in the functional world.",
+      image: IMAGES.lambdaDays,
+    },
   ],
 };
 export default content;
