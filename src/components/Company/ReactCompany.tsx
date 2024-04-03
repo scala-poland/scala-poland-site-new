@@ -26,8 +26,8 @@ function ReactCompany({ description, icon, tags, title, image }) {
         {/* <Title title={title} variant={TITLE_VARIANTS.small} class="companyName" /> */}
         <p>{description}</p>
         <div className={styles.tags}>
-          {tags.map((tag) => (
-            <span>{tag}</span>
+          {tags.map((tag, index) => (
+            <span key={index}>{tag}</span>
           ))}
         </div>
       </section>
