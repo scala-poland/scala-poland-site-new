@@ -12,7 +12,8 @@ import ReactCompanies from './ReactCompanies';
 <section class="companies">
   <Container>
     <Title title="Companies using Scala" icon={TITLE_ICONS.handshake} />
-    <astro-heart>
+    <ReactCompanies client:only="react" />
+    <!-- <astro-heart>
       <div class="filters">
         {
           content.companiesUsingScala.filters.map((filter: FiltersType) => (
@@ -30,7 +31,7 @@ import ReactCompanies from './ReactCompanies';
           ))
         }
       </div>
-    </astro-heart>
+    </astro-heart> -->
   </Container>
 </section>
 
