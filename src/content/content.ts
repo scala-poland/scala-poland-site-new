@@ -39,10 +39,9 @@ const content: Content = {
     filters: Object.values(FILTERS),
     companies: [
       {
-        icon: 'arrow',
         title: 'Iterators',
         description:
-          "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
+          "Iterators - Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactfulIterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
         tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
       },
       {
@@ -153,3 +152,5 @@ const content: Content = {
   ],
 };
 export default content;
+
+//TODO create filters from compoanies tags arrays

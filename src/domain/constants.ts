@@ -18,6 +18,7 @@ export const LINK_BUTTON_VARIANTS = {
   secondary: 'secondary',
 };
 
+//TODO filters from arrays of tags
 export const FILTERS = {
   all: 'ALL',
   warsaw: '#Warsaw',

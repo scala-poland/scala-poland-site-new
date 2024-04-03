@@ -5,19 +5,24 @@ import Introduction from '@components/Introduction/Introduction.astro';
 import Layout from '@layouts/Layout.astro';
 import LearningMaterials from '@components/LearningMaterials/LearningMaterials.astro';
 import Conferences from '@components/Conferences/Conferences.astro';
-import Companies from '@components/Companies/Companies.astro';
-import ReactCompanies from '@components/Companies/ReactCompanies';
+import ReactCompanies from '@components/ReactCompanies';
+import Container from '@components/Container/Container.astro';
+import Title from '@components/Title/Title.astro';
+import { TITLE_ICONS } from '@domain/constants';
 ---
 
 <Layout title="Polish Scala Comunity">
   <main>
     <Hero />
-    <!-- <ReactCompanies client:only="react" /> -->
-    <!-- <ReactCompanies client:load /> -->
-
     <Introduction />
     <LearningMaterials />
-    <Companies />
+    <Container>
+      <ReactCompanies client:only="react">
+        <div slot="title">
+          <Title title="Companies using Scala" icon={TITLE_ICONS.handshake} />
+        </div>
+      </ReactCompanies>
+    </Container>
     <MeetupGroups />
     <Conferences />
   </main>
@@ -31,3 +36,4 @@ import ReactCompanies from '@components/Companies/ReactCompanies';
     line-height: 1.6;
   }
 </style>
+@components/ReactCompanies/ReactCompanies @components/ReactCompanies
