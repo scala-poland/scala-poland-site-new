@@ -1,10 +1,10 @@
-import type { FiltersType, ImagesType } from '@domain/types';
+import type { ImagesType } from '@domain/types';
 import styles from './ReactCompany.module.scss';
 
 interface ReactCompanyProps {
   description: string;
   image?: ImagesType;
-  tags: FiltersType[];
+  tags: string[];
   title: string;
 }
 
