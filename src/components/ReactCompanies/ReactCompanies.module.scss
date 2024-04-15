@@ -42,5 +42,6 @@
 
   @include screen-sm-minus {
     padding: 40px 0;
+    grid-template-columns: 1fr;
   }
 }

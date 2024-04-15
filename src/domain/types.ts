@@ -4,7 +4,6 @@ import type { TAGS_FROM_COMPANIES, LINK_BUTTON_VARIANTS, TITLE_ICONS, TITLE_VARI
 export type TitleIconsType = (typeof TITLE_ICONS)[keyof typeof TITLE_ICONS];
 export type TitleVariantsType = (typeof TITLE_VARIANTS)[keyof typeof TITLE_VARIANTS];
 export type ImagesType = (typeof IMAGES)[keyof typeof IMAGES];
-// export type FiltersType = (typeof TAGS_FROM_COMPANIES)[keyof typeof TAGS_FROM_COMPANIES];
 export type LinkButtonVariantsType = (typeof LINK_BUTTON_VARIANTS)[keyof typeof LINK_BUTTON_VARIANTS];
 
 export interface Content {

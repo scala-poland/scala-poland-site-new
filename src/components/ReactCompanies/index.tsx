@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import styles from './ReactCompanies.module.scss';
 
 interface ReactCompaniesProps {
-  title: ReactNode;
+  title?: ReactNode;
 }
 
 const ReactCompanies = ({ title }: ReactCompaniesProps) => {

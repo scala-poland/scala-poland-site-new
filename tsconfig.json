@@ -29,6 +29,5 @@
       "@styles/*": ["src/styles/*"]
     }
   },
-  // "include": ["src"]
   "include": ["src", "**/*.ts", "**/*.tsx", "**/*.jsx"]
 }
