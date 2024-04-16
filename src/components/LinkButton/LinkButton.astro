@@ -29,7 +29,7 @@ const linkWidth = !icon && !image ? '100%' : '80%';
 >
   <div class="iconAndContentWrapper">
     {icon && <Icon name={icon} width={64} height={64} />}
-    <!-- // astro typescript issue  - added as ImagesType to avoid this but works correctly with ImagesType andsrc url string)-->
+    <!-- astro typescript issue - added as ImagesType to avoid this but works correctly with ImagesType and url string)-->
     {!icon && image && <Image src={image as ImagesType} alt={imageAlt} width={64} height={64} class="image" />}
 
     <div class="content">
