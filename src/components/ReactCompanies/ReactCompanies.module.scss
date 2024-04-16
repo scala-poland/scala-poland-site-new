@@ -9,13 +9,13 @@
   }
 }
 
-.filters {
+.tags {
   @include flex-container(center, center, row, 20px);
   flex-wrap: wrap;
   padding-top: 32px;
 }
 
-.filterButton {
+.tagButton {
   color: $color-red-100;
   background-color: $color-red-transparent;
   border: 1px solid $color-red-100;

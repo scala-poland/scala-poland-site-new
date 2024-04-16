@@ -20,6 +20,8 @@ export const LINK_BUTTON_VARIANTS = {
   secondary: 'secondary',
 };
 
+export const ALL_TAG = 'ALL' as const;
+
 export const TAGS_FROM_COMPANIES = content.companiesUsingScala
   .map(({ tags }) => tags)
   .flat()

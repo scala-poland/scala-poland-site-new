@@ -14,7 +14,11 @@ import type { Conferences } from '@domain/types';
       {
         content.conferences.map(({ title, description, image }: Conferences) => (
           <div class="conference">
-            <Image src={image} alt="Go to slack" class="groupImage" height={410} class="image" />
+            {typeof image === 'string' ? (
+              <img src={image} />
+            ) : (
+              <Image src={image} alt="Go to slack" class="groupImage" height={410} class="image" /> //TODO image alts????
+            )}
             <section class="information">
               <Title title={title} variant={TITLE_VARIANTS.mediumUnderline} />
               <p>{description}</p>

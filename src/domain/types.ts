@@ -1,5 +1,5 @@
 import type { IMAGES } from '@images/images';
-import type { TAGS_FROM_COMPANIES, LINK_BUTTON_VARIANTS, TITLE_ICONS, TITLE_VARIANTS } from './constants';
+import type { ALL_TAG, TAGS_FROM_COMPANIES, LINK_BUTTON_VARIANTS, TITLE_ICONS, TITLE_VARIANTS } from './constants';
 
 export type TitleIconsType = (typeof TITLE_ICONS)[keyof typeof TITLE_ICONS];
 export type TitleVariantsType = (typeof TITLE_VARIANTS)[keyof typeof TITLE_VARIANTS];
@@ -21,7 +21,7 @@ export interface LearningMaterials {
 }
 
 export interface Companies {
-  image?: ImagesType;
+  image?: ImagesType | string;
   title: string;
   description: string;
   tags: string[];
@@ -29,13 +29,13 @@ export interface Companies {
 
 export interface MeetupGroups {
   icon?: string;
-  image?: ImagesType;
+  image?: ImagesType | string;
   link: string;
   title: string;
 }
 
 export interface Conferences {
   title: string;
-  image: ImagesType;
+  image: ImagesType | string;
   description: string;
 }

@@ -1,5 +1,6 @@
 import type { Content } from '@domain/types';
 import { IMAGES } from '@images/images';
+import { getImage } from 'astro:assets';
 
 const content: Content = {
   heroDescription:
@@ -63,7 +64,7 @@ const content: Content = {
       tags: ['#Poznan', '#Remote'],
     },
     {
-      image: IMAGES.netguruLogo,
+      image: 'https://cdn.pixabay.com/photo/2021/05/15/04/12/eggs-6254861_1280.jpg',
       title: 'Iterators',
       description:
         "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
@@ -79,7 +80,7 @@ const content: Content = {
 
   meetupGroups: [
     {
-      image: IMAGES.netguruLogo,
+      image: 'https://cdn.pixabay.com/photo/2021/05/15/04/12/eggs-6254861_1280.jpg',
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
@@ -143,7 +144,7 @@ const content: Content = {
       title: 'Lambda Days',
       description:
         "10th-anniversary edition! Let's celebrate together this one-of-a-kind experience in the functional world.",
-      image: IMAGES.lambdaDays,
+      image: 'https://cdn.pixabay.com/photo/2021/05/15/04/12/eggs-6254861_1280.jpg',
     },
   ],
 };

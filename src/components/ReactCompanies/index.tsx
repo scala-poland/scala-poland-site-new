@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import ReactCompany from '@components/ReactCompany';
 import content from '@content/content';
-import { TAGS_FROM_COMPANIES } from '@domain/constants';
+import { TAGS_FROM_COMPANIES, ALL_TAG } from '@domain/constants';
 import type { Companies } from '@domain/types';
 import clsx from 'clsx';
 import styles from './ReactCompanies.module.scss';
@@ -11,29 +11,28 @@ interface ReactCompaniesProps {
 }
 
 const ReactCompanies = ({ title }: ReactCompaniesProps) => {
-  const [selectedTag, setTag] = useState('ALL');
-  const allTag = 'ALL' as const;
+  const [selectedTag, setTag] = useState<string>(ALL_TAG);
 
   return (
     <section className={styles.companies}>
       {title}
-      <div className={styles.filters}>
+      <div className={styles.tags}>
         <button
-          id={allTag}
-          key={allTag}
-          className={clsx(styles.filterButton, allTag === selectedTag && styles.selected)}
+          id={ALL_TAG}
+          key={ALL_TAG}
+          className={clsx(styles.tagButton, ALL_TAG === selectedTag && styles.selected)}
           onClick={() => {
-            setTag(allTag);
+            setTag(ALL_TAG);
           }}
         >
-          {allTag}
+          {ALL_TAG}
         </button>
 
         {TAGS_FROM_COMPANIES.map((filter: string) => (
           <button
             id={filter}
             key={filter}
-            className={clsx(styles.filterButton, filter === selectedTag && styles.selected)}
+            className={clsx(styles.tagButton, filter === selectedTag && styles.selected)}
             onClick={() => {
               setTag(filter);
             }}
@@ -45,7 +44,7 @@ const ReactCompanies = ({ title }: ReactCompaniesProps) => {
 
       <div className={styles.content}>
         {content.companiesUsingScala
-          .filter(({ tags }) => selectedTag === allTag || tags.includes(selectedTag))
+          .filter(({ tags }) => selectedTag === ALL_TAG || tags.includes(selectedTag))
           .map(({ image, title, description, tags }: Companies, index) => (
             <ReactCompany key={index} image={image} title={title} description={description} tags={tags} />
           ))}
