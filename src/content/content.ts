@@ -58,6 +58,7 @@ const content: Content = {
     },
     {
       image: IMAGES.allegro,
+      imageAlt: 'Allegro logo',
       title: 'Iterators',
       description:
         "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
@@ -91,6 +92,7 @@ const content: Content = {
     },
     {
       image: IMAGES.netguruLogo,
+      imageAlt: 'Netguru logo',
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
@@ -127,6 +129,7 @@ const content: Content = {
       description:
         'Get ready for two days of immersive functional programming experience with the great community. Learn from established IT experts and practitioners, and meet like-minded individuals in your field. Get ready for two days of immersive functional programming experience with the great community. Learn from established IT experts and practitioners, and meeAll Scalarians will tell you that the connections you can make at the conference are one of the most valuable aspects of attending Scalar. Join us, exchange ideas, and make friends! All of these while getting to know functional programming trends and use cases.Get ready for two days of immersive functional programming and meet like-minded individuals in your field. Get ready for two days of immersive functional programming experience with the great community. Learn from established IT experts and practitioners, and meeAll Scalarians will tell you that the connections you can make at the conference are one of the most valuable aspects of attending Scalar. Join us, exchange ideas, and make friends! All of these while getting to know functional programming trends and use cases.Get ready for two days of immersive functional programming experience with the great community. Learn from established IT experts and practitioners, andexperience with the great community. Learn from established IT experts and practitioners, and mee',
       image: IMAGES.scalaConference,
+      imageAlt: 'Scala conference picture',
     },
     {
       title: 'Lambda Days',

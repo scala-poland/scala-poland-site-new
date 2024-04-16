@@ -10,10 +10,11 @@ interface Props {
   title: string;
   class?: string;
   icon?: string;
-  image?: ImagesType;
+  image?: ImagesType | string;
   variant?: LinkButtonVariantsType;
+  imageAlt?: string;
 }
-const { href, icon, title, variant, image, class: className, ...rest } = Astro.props;
+const { href, icon, title, variant, image, imageAlt = '', class: className, ...rest } = Astro.props;
 
 const showLine = Boolean(!icon && !image);
 const linkWidth = !icon && !image ? '100%' : '80%';
@@ -28,7 +29,9 @@ const linkWidth = !icon && !image ? '100%' : '80%';
 >
   <div class="iconAndContentWrapper">
     {icon && <Icon name={icon} width={64} height={64} />}
-    {!icon && image && <Image src={image} alt="logo image" width={64} height={64} class="image" />}
+    <!-- //TODO decide if should be as ImaagesType or TS ignore? astro issue ( with this type works with ImagesType and src url string)-->
+    {!icon && image && <Image src={image as ImagesType} alt={imageAlt} width={64} height={64} class="image" />}
+
     <div class="content">
       <Title title={title} variant={TITLE_VARIANTS.small} />
       <p>{href}</p>

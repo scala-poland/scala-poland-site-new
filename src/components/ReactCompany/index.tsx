@@ -1,18 +1,11 @@
-import type { ImagesType } from '@domain/types';
+import type { Companies } from '@domain/types';
 import styles from './ReactCompany.module.scss';
 
-interface ReactCompanyProps {
-  description: string;
-  image?: ImagesType | string;
-  tags: string[];
-  title: string;
-}
-
-function ReactCompany({ description, tags, title, image }: ReactCompanyProps) {
+function ReactCompany({ description, tags, title, image, imageAlt = '' }: Companies) {
   return (
     <div className={styles.company}>
       <section className={styles.information}>
-        {image && <img src={typeof image === 'string' ? image : image.src} alt="logo image" className={styles.image} />}
+        {image && <img src={typeof image === 'string' ? image : image.src} alt={imageAlt} className={styles.image} />}
         <h4 className={styles.companyName}>{title}</h4>
         <p className={styles.description}>{description}</p>
         <div className={styles.tags}>

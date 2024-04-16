@@ -13,8 +13,8 @@ import type { MeetupGroups } from '@domain/types';
 <Container>
   <div class="root">
     <div class="images">
-      <Image src={IMAGES.meetupComputer} alt="Go to slack" class="computerImage" />
-      <Image src={IMAGES.meetupGroup} alt="Go to slack" class="groupImage" />
+      <Image src={IMAGES.meetupComputer} alt="People with computer" class="computerImage" />
+      <Image src={IMAGES.meetupGroup} alt="People at the meeting" class="groupImage" />
     </div>
     <div class="title">
       <Title title="Meetup groups" icon={TITLE_ICONS.calendar} />
@@ -22,9 +22,9 @@ import type { MeetupGroups } from '@domain/types';
     <div class="meetupGroups">
       <ul>
         {
-          content.meetupGroups.map(({ link, title, icon, image }: MeetupGroups) => (
+          content.meetupGroups.map(({ link, title, icon, image, imageAlt }: MeetupGroups) => (
             <li>
-              <LinkButton icon={icon} href={link} title={title} image={image} variant={link} />
+              <LinkButton icon={icon} href={link} title={title} image={image} variant={link} imageAlt={imageAlt} />
             </li>
           ))
         }

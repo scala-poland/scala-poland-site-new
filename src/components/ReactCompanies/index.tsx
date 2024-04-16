@@ -45,8 +45,15 @@ const ReactCompanies = ({ title }: ReactCompaniesProps) => {
       <div className={styles.content}>
         {content.companiesUsingScala
           .filter(({ tags }) => selectedTag === ALL_TAG || tags.includes(selectedTag))
-          .map(({ image, title, description, tags }: Companies, index) => (
-            <ReactCompany key={index} image={image} title={title} description={description} tags={tags} />
+          .map(({ image, title, description, tags, imageAlt }: Companies, index) => (
+            <ReactCompany
+              key={index}
+              image={image}
+              imageAlt={imageAlt}
+              title={title}
+              description={description}
+              tags={tags}
+            />
           ))}
       </div>
     </section>

@@ -12,12 +12,12 @@ import type { Conferences } from '@domain/types';
     <Title title="Conferences" icon={TITLE_ICONS.userGroup} />
     <div class="content">
       {
-        content.conferences.map(({ title, description, image }: Conferences) => (
+        content.conferences.map(({ title, description, image, imageAlt }: Conferences) => (
           <div class="conference">
             {typeof image === 'string' ? (
-              <img src={image} />
+              <img src={image} alt={imageAlt || ''} />
             ) : (
-              <Image src={image} alt="Go to slack" class="groupImage" height={410} class="image" /> //TODO image alts????
+              <Image src={image} alt={imageAlt || ''} class="groupImage" height={410} class="image" />
             )}
             <section class="information">
               <Title title={title} variant={TITLE_VARIANTS.mediumUnderline} />
