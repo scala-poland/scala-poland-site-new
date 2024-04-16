@@ -2,7 +2,7 @@ import { useState, type ReactNode } from 'react';
 import ReactCompany from '@components/ReactCompany';
 import content from '@content/content';
 import { TAGS_FROM_COMPANIES, ALL_TAG } from '@domain/constants';
-import type { Companies } from '@domain/types';
+import type { Company } from '@domain/types';
 import clsx from 'clsx';
 import styles from './ReactCompanies.module.scss';
 
@@ -17,7 +17,7 @@ const ReactCompanies = ({ title }: ReactCompaniesProps): JSX.Element => {
     return (
       <button
         id={value}
-        className={clsx(styles.tagButton, value === selectedTag && styles.selected)}
+        className={clsx(styles.tagButton, { 'styles.selected': Boolean(value === selectedTag) })}
         onClick={() => {
           setTag(value);
         }}
@@ -41,15 +41,8 @@ const ReactCompanies = ({ title }: ReactCompaniesProps): JSX.Element => {
       <div className={styles.content}>
         {content.companiesUsingScala
           .filter(({ tags }) => selectedTag === ALL_TAG || tags.includes(selectedTag))
-          .map(({ image, title, description, tags, imageAlt }: Companies, index) => (
-            <ReactCompany
-              key={index}
-              image={image}
-              imageAlt={imageAlt}
-              title={title}
-              description={description}
-              tags={tags}
-            />
+          .map((company: Company, index) => (
+            <ReactCompany key={index} {...company} />
           ))}
       </div>
     </section>

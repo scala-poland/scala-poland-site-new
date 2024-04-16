@@ -1,6 +1,5 @@
 import type { Content } from '@domain/types';
 import { IMAGES } from '@images/images';
-import { getImage } from 'astro:assets';
 
 const content: Content = {
   heroDescription:

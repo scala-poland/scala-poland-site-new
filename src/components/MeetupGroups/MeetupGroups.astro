@@ -7,7 +7,7 @@ import LinkButton from '@components/LinkButton/LinkButton.astro';
 import { TITLE_ICONS } from '@domain/constants';
 import Container from '@components/Container/Container.astro';
 import { IMAGES } from '@images/images';
-import type { MeetupGroups } from '@domain/types';
+import type { MeetupGroup } from '@domain/types';
 ---
 
 <Container>
@@ -22,7 +22,7 @@ import type { MeetupGroups } from '@domain/types';
     <div class="meetupGroups">
       <ul>
         {
-          content.meetupGroups.map(({ link, title, icon, image, imageAlt }: MeetupGroups) => (
+          content.meetupGroups.map(({ link, title, icon, image, imageAlt }: MeetupGroup) => (
             <li>
               <LinkButton icon={icon} href={link} title={title} image={image} variant={link} imageAlt={imageAlt} />
             </li>

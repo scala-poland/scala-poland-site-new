@@ -9,18 +9,18 @@ export type LinkButtonVariantsType = (typeof LINK_BUTTON_VARIANTS)[keyof typeof 
 export interface Content {
   heroDescription: string;
   introductionText: string;
-  learningMaterials: LearningMaterials[];
-  companiesUsingScala: Companies[];
-  meetupGroups: MeetupGroups[];
-  conferences: Conferences[];
+  learningMaterials: LearningMaterial[];
+  companiesUsingScala: Company[];
+  meetupGroups: MeetupGroup[];
+  conferences: Conference[];
 }
 
-export interface LearningMaterials {
+export interface LearningMaterial {
   title: string;
   link: string;
 }
 
-export interface Companies {
+export interface Company {
   image?: ImagesType | string;
   imageAlt?: string;
   title: string;
@@ -28,7 +28,7 @@ export interface Companies {
   tags: string[];
 }
 
-export interface MeetupGroups {
+export interface MeetupGroup {
   icon?: string;
   image?: ImagesType | string;
   imageAlt?: string;
@@ -36,7 +36,7 @@ export interface MeetupGroups {
   title: string;
 }
 
-export interface Conferences {
+export interface Conference {
   title: string;
   image: ImagesType | string;
   imageAlt?: string;

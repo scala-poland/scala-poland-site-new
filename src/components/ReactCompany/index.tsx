@@ -1,7 +1,7 @@
-import type { Companies } from '@domain/types';
+import type { Company } from '@domain/types';
 import styles from './ReactCompany.module.scss';
 
-function ReactCompany({ description, tags, title, image, imageAlt = '' }: Companies): JSX.Element {
+function ReactCompany({ description, tags, title, image, imageAlt = '' }: Company): JSX.Element {
   return (
     <div className={styles.company}>
       <section className={styles.information}>

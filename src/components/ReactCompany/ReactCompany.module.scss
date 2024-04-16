@@ -37,8 +37,11 @@
   color: $color-grey-600;
   padding-right: 8px;
   line-height: 34px;
-  height: 220px;
-  @include vertical-scrollbar();
+
+  @include screen-md-plus {
+    height: 220px;
+    @include vertical-scrollbar();
+  }
 }
 
 .tags {
