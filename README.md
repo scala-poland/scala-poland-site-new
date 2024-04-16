@@ -46,9 +46,71 @@ to allow format astro files on save:
 
 ## Adding content
 
-To add or delete content go to:
+### To add or delete content go to:
 
-scr/content/content.ts file and modify content object
+src/content/content.ts file and modify content object according src/domain/types.ts
+
+### To add/edit image from url:
+ - Just add url string to image content object just like that:
+
+```bash
+ const content = {
+  ...
+    {
+      image: 'https://domain.com/photo.jpg',
+      title: 'Iterators',
+      ...
+    },
+ };
+```
+### To add/edit image from local files:
+
+- Add optimized image to src/assets/images after that add image import to src/assets/images/images.ts and add image to IMAGES object
+
+```bash
+import NewImage from '@images/newImage.png';
+...
+
+export const IMAGES = {
+  ...
+  newImage: NewImage,
+};
+ ```
+- Add image to content file
+
+```bash
+ const content = {
+  ...
+    {
+      image: IMAGES.newImage,
+      ...
+    },
+ };
+```
+
+### To add svg icon:
+
+- Add optimized svg to src/assets/svg folder
+
+Important!!! In astro project you can't use svg with <use xlink:href= .....> 
+
+- Add svg name to content.meetupGroups object as string
+
+```bash
+ const content = {
+  ...
+     meetupGroups: [
+      {
+        icon: 'newSvg',
+        title: 'Wroclaw Scala User Group',
+        ...
+      },
+      ...
+    ]
+ };
+```
+
+Remember to check if image or icon display correctly, svg / image shouldn't have margin.
 
 
 
@@ -61,17 +123,36 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── public/
 │   └── favicon.svg
 ├── src/
+│   ├── assets/
+│   │   ├── icons
+│   │       └── icon.svg
+│   │       ├── ...
+│   │   └── images
+│   │       ├── image.png
+│   │       ├── ...
+│   │       └── images.tsx
 │   ├── components/
-│   │   └── Component
-│   │       ├── Component.module.scss
+│   │   ├── Component
 │   │       └── Component.astro
+│   │   ├── ReactComponent
+│   │       ├── Component.module.scss
+│   │       └── index.tsx
+│   │   └── ...
+
+│   └── content/
+│       └── content.ts
+│   └── domain/
+│       ├── types.ts
+│       └── constants.ts
 │   ├── layouts/
 │   │   └── Layout.astro
 │   └── pages/
 │       └── index.astro
 │   └── styles/
-│       ├── common-style.scss
-│       └── theme.scss
+│       ├── common-colors.scss
+│       ├── common-responsive.scss
+│       ├── ...
+│       └── common-style.scss
 ├── ...
 └── package.json
 ```

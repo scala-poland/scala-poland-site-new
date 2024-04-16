@@ -86,6 +86,7 @@ const content: Content = {
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
+      icon: 'arrow',
       image: IMAGES.netguruLogo,
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
