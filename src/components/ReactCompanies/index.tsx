@@ -10,35 +10,31 @@ interface ReactCompaniesProps {
   title?: ReactNode;
 }
 
-const ReactCompanies = ({ title }: ReactCompaniesProps) => {
+const ReactCompanies = ({ title }: ReactCompaniesProps): JSX.Element => {
   const [selectedTag, setTag] = useState<string>(ALL_TAG);
+
+  const TagButton = ({ value }: { value: string }): JSX.Element => {
+    return (
+      <button
+        id={value}
+        className={clsx(styles.tagButton, value === selectedTag && styles.selected)}
+        onClick={() => {
+          setTag(value);
+        }}
+      >
+        {value}
+      </button>
+    );
+  };
 
   return (
     <section className={styles.companies}>
       {title}
       <div className={styles.tags}>
-        <button
-          id={ALL_TAG}
-          key={ALL_TAG}
-          className={clsx(styles.tagButton, ALL_TAG === selectedTag && styles.selected)}
-          onClick={() => {
-            setTag(ALL_TAG);
-          }}
-        >
-          {ALL_TAG}
-        </button>
+        <TagButton value={ALL_TAG} />
 
-        {TAGS_FROM_COMPANIES.map((filter: string) => (
-          <button
-            id={filter}
-            key={filter}
-            className={clsx(styles.tagButton, filter === selectedTag && styles.selected)}
-            onClick={() => {
-              setTag(filter);
-            }}
-          >
-            {filter}
-          </button>
+        {TAGS_FROM_COMPANIES.map((tag: string) => (
+          <TagButton value={tag} />
         ))}
       </div>
 
