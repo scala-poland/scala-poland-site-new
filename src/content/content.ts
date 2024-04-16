@@ -1,4 +1,3 @@
-import { FILTERS } from '@domain/constants';
 import type { Content } from '@domain/types';
 import { IMAGES } from '@images/images';
 
@@ -35,67 +34,65 @@ const content: Content = {
     },
   ],
 
-  companiesUsingScala: {
-    filters: Object.values(FILTERS),
-    companies: [
-      {
-        icon: '#',
-        title: 'Iterators',
-        description:
-          "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
-      },
-      {
-        icon: '#',
-        title: 'Iterators',
-        description:
-          "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
-      },
-      {
-        icon: '#',
-        title: 'Iterators',
-        description:
-          "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
-      },
-      {
-        icon: '#',
-        title: 'Iterators',
-        description:
-          "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
-      },
-      {
-        icon: '#',
-        title: 'Iterators',
-        description:
-          "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
-      },
-      {
-        icon: '#',
-        title: 'Iterators',
-        description:
-          "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
-        tags: [FILTERS.warsaw, FILTERS.remote, FILTERS.product],
-      },
-    ],
-  },
+  companiesUsingScala: [
+    {
+      title: 'Iterators',
+      description:
+        "Iterators - Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactfulIterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
+      tags: ['#Warsaw', '#product'],
+    },
+    {
+      image: IMAGES.iterators,
+      title: 'Iterators',
+      description:
+        "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
+      tags: ['#Warsaw', '#remote', '#product'],
+    },
+    {
+      image: IMAGES.netguru,
+      title: 'Iterators',
+      description:
+        "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
+      tags: ['#Łódź', '#Warsaw', '#remote'],
+    },
+    {
+      image: IMAGES.allegro,
+      imageAlt: 'Allegro logo',
+      title: 'Iterators',
+      description:
+        "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
+      tags: ['#Poznan', '#Remote'],
+    },
+    {
+      image: 'https://cdn.pixabay.com/photo/2021/05/15/04/12/eggs-6254861_1280.jpg',
+      title: 'Iterators',
+      description:
+        "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
+      tags: ['#Remote', '#Krakow'],
+    },
+    {
+      title: 'Iterators',
+      description:
+        "Iterators - our vision is to create an agile environment where the spark of the client's idea is flamed by the most impactful solutions – fast, transparent, and sustainable. We're hiring Scala engineers on all levels, even complete beginners!",
+      tags: ['#Warsaw', '#Remote', '#Krakow'],
+    },
+  ],
 
   meetupGroups: [
     {
+      image: 'https://cdn.pixabay.com/photo/2021/05/15/04/12/eggs-6254861_1280.jpg',
+      title: 'Wroclaw Scala User Group',
+      link: 'https://www.iteratorshq.com/blog/category...',
+    },
+    {
+      icon: 'arrow',
       image: IMAGES.netguruLogo,
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
     {
       image: IMAGES.netguruLogo,
-      title: 'Wroclaw Scala User Group',
-      link: 'https://www.iteratorshq.com/blog/category...',
-    },
-    {
-      image: IMAGES.netguruLogo,
+      imageAlt: 'Netguru logo',
       title: 'Wroclaw Scala User Group',
       link: 'https://www.iteratorshq.com/blog/category...',
     },
@@ -130,14 +127,27 @@ const content: Content = {
     {
       title: 'Scala Conference',
       description:
-        'Get ready for two days of immersive functional programming experience with the great community. Learn from established IT experts and practitioners, and meet like-minded individuals in your field. All Scalarians will tell you that the connections you can make at the conference are one of the most valuable aspects of attending Scalar. Join us, exchange ideas, and make friends! All of these while getting to know functional programming trends and use cases.',
-      image: IMAGES.meetupComputer, //TODO
+        'Get ready for two days of immersive functional programming experience with the great community. Learn from established IT experts and practitioners, and meet like-minded individuals in your field. Get ready for two days of immersive functional programming experience with the great community. Learn from established IT experts and practitioners, and meeAll Scalarians will tell you that the connections you can make at the conference are one of the most valuable aspects of attending Scalar. Join us, exchange ideas, and make friends! All of these while getting to know functional programming trends and use cases.Get ready for two days of immersive functional programming and meet like-minded individuals in your field. Get ready for two days of immersive functional programming experience with the great community. Learn from established IT experts and practitioners, and meeAll Scalarians will tell you that the connections you can make at the conference are one of the most valuable aspects of attending Scalar. Join us, exchange ideas, and make friends! All of these while getting to know functional programming trends and use cases.Get ready for two days of immersive functional programming experience with the great community. Learn from established IT experts and practitioners, andexperience with the great community. Learn from established IT experts and practitioners, and mee',
+      image: IMAGES.scalaConference,
+      imageAlt: 'Scala conference picture',
     },
     {
       title: 'Lambda Days',
       description:
         "10th-anniversary edition! Let's celebrate together this one-of-a-kind experience in the functional world.",
-      image: IMAGES.meetupGroup, //TODO
+      image: IMAGES.lambdaDays,
+    },
+    {
+      title: 'Lambda Days',
+      description:
+        "10th-anniversary edition! Let's celebrate together this one-of-a-kind experience in the functional world.",
+      image: IMAGES.lambdaDays,
+    },
+    {
+      title: 'Lambda Days',
+      description:
+        "10th-anniversary edition! Let's celebrate together this one-of-a-kind experience in the functional world.",
+      image: 'https://cdn.pixabay.com/photo/2021/05/15/04/12/eggs-6254861_1280.jpg',
     },
   ],
 };

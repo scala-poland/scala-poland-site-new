@@ -4,13 +4,13 @@ import Title from '@components/Title/Title.astro';
 import LinkButton from '@components/LinkButton/LinkButton.astro';
 import { TITLE_ICONS } from '@domain/constants';
 import Container from '@components/Container/Container.astro';
-import type { LearningMaterials } from '@domain/types';
+import type { LearningMaterial } from '@domain/types';
 ---
 
 <Container class="meetupContainer">
   <Title title="Learning materials" icon={TITLE_ICONS.email} />
   <div class="content">
-    {content.learningMaterials.map(({ link, title }: LearningMaterials) => <LinkButton href={link} title={title} />)}
+    {content.learningMaterials.map(({ link, title }: LearningMaterial) => <LinkButton href={link} title={title} />)}
   </div>
 </Container>
 

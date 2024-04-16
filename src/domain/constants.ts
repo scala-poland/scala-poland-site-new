@@ -1,3 +1,5 @@
+import content from '@content/content';
+
 export const TITLE_ICONS = {
   email: 'email',
   handshake: 'handshake',
@@ -18,14 +20,14 @@ export const LINK_BUTTON_VARIANTS = {
   secondary: 'secondary',
 };
 
-export const FILTERS = {
-  all: 'ALL',
-  warsaw: '#Warsaw',
-  krakow: '#Cracow',
-  gdańsk: '#Gdańsk',
-  lódź: '#Łódź',
-  poznań: '#Poznań',
-  remote: '#remote',
-  product: '#product',
-  services: '#services',
-};
+export const ALL_TAG = 'ALL' as const;
+
+export const TAGS_FROM_COMPANIES = content.companiesUsingScala
+  .map(({ tags }) => tags)
+  .flat()
+  .reduce((accumulator, currentValue) => {
+    if (!accumulator.includes(currentValue)) {
+      accumulator.push(currentValue);
+    }
+    return accumulator;
+  }, [] as string[]);

@@ -1,0 +1,124 @@
+---
+import { Image } from 'astro:assets';
+import content from '@content/content';
+import Title from '@components/Title/Title.astro';
+import { TITLE_ICONS, TITLE_VARIANTS } from '@domain/constants';
+import Container from '@components/Container/Container.astro';
+import type { Conference } from '@domain/types';
+---
+
+<section class="conferences">
+  <Container>
+    <Title title="Conferences" icon={TITLE_ICONS.userGroup} />
+    <div class="content">
+      {
+        content.conferences.map(({ title, description, image, imageAlt }: Conference) => (
+          <div class="conference">
+            {typeof image === 'string' ? (
+              <img src={image} alt={imageAlt || ''} />
+            ) : (
+              <Image src={image} alt={imageAlt || ''} class="groupImage" height={410} class="image" />
+            )}
+            <section class="information">
+              <Title title={title} variant={TITLE_VARIANTS.mediumUnderline} />
+              <p>{description}</p>
+            </section>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</section>
+
+<style lang="scss">
+  @import '@styles/common-style.scss';
+
+  .conferences {
+    background-color: $color-neutral-200;
+    width: 100%;
+    padding: 74px 0 48px 0;
+
+    @include screen-md-minus {
+      padding: 48px 0;
+    }
+  }
+
+  .content {
+    padding: 64px 0;
+
+    @include screen-sm-minus {
+      padding: 40px 0;
+    }
+  }
+
+  .conference {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 'image information';
+    gap: 28px;
+    padding-bottom: 100px;
+    align-content: center;
+
+    @include screen-sm-plus {
+      &:nth-child(odd) {
+        grid-template-areas: 'information image';
+      }
+
+      &:nth-child(even) {
+        section {
+          padding-left: 40px;
+        }
+      }
+    }
+
+    @include screen-sm-minus {
+      &:nth-child(even) {
+        section {
+          padding-left: 0;
+        }
+      }
+    }
+
+    @include screen-sm {
+      padding-bottom: 60px;
+    }
+
+    @include screen-xs {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'image'
+        'information';
+      padding-bottom: 40px;
+    }
+  }
+
+  .information {
+    padding-right: 8px;
+    grid-area: information;
+    width: 100%;
+    display: grid;
+    align-content: center;
+  }
+
+  p {
+    margin-top: 24px;
+    color: $color-grey-500;
+    line-height: 34px;
+  }
+
+  .image {
+    grid-area: image;
+    width: 100%;
+    height: 410px;
+    object-fit: cover;
+    align-self: center;
+
+    @include screen-sm {
+      height: 300px;
+    }
+
+    @include screen-xs {
+      height: auto;
+    }
+  }
+</style>
