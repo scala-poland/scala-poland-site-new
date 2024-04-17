@@ -2,6 +2,8 @@
  
 ## Description 🖋
 
+We, the members of the Polish Scala Community, are a group of passionate programmers united by our love for the Scala programming language. This is our community site to promote the use and understanding of Scala and to create a supportive and inclusive space where Scala programmers can come together to learn, share, and grow.
+
 
 ## Getting started
 
@@ -92,7 +94,7 @@ export const IMAGES = {
 
 - Add optimized svg to src/assets/svg folder
 
-Important!!! In astro project you can't use svg with <use xlink:href= .....> 
+Important!!! In astro project you can't use svg with "<use xlink:href= .....>" 
 
 - Add svg name to content.meetupGroups object as string
 
