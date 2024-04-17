@@ -6,6 +6,7 @@ import { TITLE_VARIANTS } from '@domain/constants';
 import hero_bg from '@images/hero_bg.png';
 import content from '@content/content';
 import { IMAGES } from '@images/images';
+import ExternalLink from '@components/ExternalLink/ExternalLink.astro';
 
 const bgUrl = `url(${hero_bg.src})`;
 ---
@@ -18,14 +19,13 @@ const bgUrl = `url(${hero_bg.src})`;
         <Title title="Polish Scala Community" variant={TITLE_VARIANTS.extraLargeUnderline} />
         <p>{content.heroDescription}</p>
       </div>
-      <a
-        href="https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA"
-        target="_blank"
-        rel="noopener noreferrer"
+      <ExternalLink
+        link="https://join.slack.com/t/scala-poland/shared_invite/zt-1jeq834yd-iOTH4U1Gto3YWu_lEVY5oA"
+        class="slackLink"
       >
         <Image src={IMAGES.slack} alt="Go to slack" />
         WE MEET ON SLACK, JOIN US TODAY!
-      </a>
+      </ExternalLink>
     </div>
     <Image src={IMAGES.books} alt="Books image" class="booksImage" />
   </Container>
@@ -115,7 +115,7 @@ const bgUrl = `url(${hero_bg.src})`;
     }
   }
 
-  a {
+  .slackLink {
     @include flex-container(flex-start, center, row, 0.5rem);
     background-color: $color-neutral-100;
     padding: 12px;
