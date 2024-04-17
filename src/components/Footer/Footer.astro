@@ -1,0 +1,31 @@
+---
+import Container from '@components/Container/Container.astro';
+import { Image } from 'astro:assets';
+import { IMAGES } from '@images/images';
+import ExternalLink from '@components/ExternalLink/ExternalLink.astro';
+---
+
+<Container>
+  <div class="content">
+    <p>Maintained with ❤️ by</p>
+    <ExternalLink link="https://www.iteratorshq.com/">
+      <Image src={IMAGES.iterators} alt="Scala logo" />
+    </ExternalLink>
+  </div>
+
+  <style lang="scss">
+    @import '@styles/common-style.scss';
+
+    .content {
+      font-size: 20px;
+      font-weight: 500;
+      padding-bottom: 68px;
+      @include flex-container(center, center, row);
+
+      @include screen-xs {
+        font-size: 18px;
+        flex-direction: column;
+      }
+    }
+  </style>
+</Container>
