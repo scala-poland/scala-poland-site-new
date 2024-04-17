@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useState, type ReactNode, useMemo } from 'react';
 import ReactCompany from '@components/ReactCompany';
 import content from '@content/content';
 import { TAGS_FROM_COMPANIES, ALL_TAG } from '@domain/constants';
@@ -8,9 +8,10 @@ import styles from './ReactCompanies.module.scss';
 
 interface ReactCompaniesProps {
   title?: ReactNode;
+  noCompanyMatchInfo?: ReactNode;
 }
 
-const ReactCompanies = ({ title }: ReactCompaniesProps): JSX.Element => {
+const ReactCompanies = ({ title, noCompanyMatchInfo }: ReactCompaniesProps): JSX.Element => {
   const [selectedTags, setSelectedTags] = useState<string[]>([ALL_TAG]);
 
   const removeTag = (tag: string): string[] => {
@@ -29,6 +30,14 @@ const ReactCompanies = ({ title }: ReactCompaniesProps): JSX.Element => {
       setSelectedTags([...selectedTags, tag]);
     }
   };
+
+  const filteredCompanies = useMemo(
+    () =>
+      content.companiesUsingScala.filter(
+        ({ tags }) => selectedTags.includes(ALL_TAG) || selectedTags.every((selectedTag) => tags.includes(selectedTag)),
+      ),
+    [selectedTags],
+  );
 
   const TagButton = ({ value }: { value: string }): JSX.Element => {
     return (
@@ -55,12 +64,10 @@ const ReactCompanies = ({ title }: ReactCompaniesProps): JSX.Element => {
         ))}
       </div>
 
-      <div className={styles.content}>
-        {content.companiesUsingScala
-          .filter(({ tags }) => selectedTags.includes(ALL_TAG) || tags.some((tag) => selectedTags.includes(tag)))
-          .map((company: Company, index) => (
-            <ReactCompany key={index} {...company} />
-          ))}
+      <div className={clsx(styles.content, { [styles.noCompanyMatchText]: filteredCompanies.length === 0 })}>
+        {filteredCompanies.length > 0
+          ? filteredCompanies.map((company: Company, index) => <ReactCompany key={index} {...company} />)
+          : noCompanyMatchInfo}
       </div>
     </section>
   );

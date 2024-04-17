@@ -9,6 +9,7 @@ export type LinkButtonVariantsType = (typeof LINK_BUTTON_VARIANTS)[keyof typeof 
 export interface Content {
   heroDescription: string;
   introductionText: string;
+  noCompanyMatchInfo: string;
   learningMaterials: LearningMaterial[];
   companiesUsingScala: Company[];
   meetupGroups: MeetupGroup[];

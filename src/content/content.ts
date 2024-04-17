@@ -6,6 +6,7 @@ const content: Content = {
     ' We, the members of the Polish Scala Community, are a group of passionate programmers united by our love for the Scala programming language. As a community, we strive to promote the use and understanding of Scala and to create a supportive and inclusive space where Scala programmers can come together to learn, share, and grow.',
   introductionText:
     'As one of the top three countries for Scala development (according to the Scala Developer Survey 2022), we have accomplished a great deal. However, if you believe there is something missing from the list below, please consider submitting a pull request to help us improve.',
+  noCompanyMatchInfo: 'There is no company matching your criteria',
 
   learningMaterials: [
     {
