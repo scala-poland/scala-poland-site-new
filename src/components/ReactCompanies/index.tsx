@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useState, type ReactNode, useMemo } from 'react';
 import ReactCompany from '@components/ReactCompany';
 import content from '@content/content';
 import { TAGS_FROM_COMPANIES, ALL_TAG } from '@domain/constants';
@@ -8,18 +8,40 @@ import styles from './ReactCompanies.module.scss';
 
 interface ReactCompaniesProps {
   title?: ReactNode;
+  noCompanyMatchInfo?: ReactNode;
 }
 
-const ReactCompanies = ({ title }: ReactCompaniesProps): JSX.Element => {
-  const [selectedTag, setTag] = useState<string>(ALL_TAG);
+const ReactCompanies = ({ title, noCompanyMatchInfo }: ReactCompaniesProps): JSX.Element => {
+  const [selectedTags, setSelectedTags] = useState<string[]>([ALL_TAG]);
+
+  const removeTag = (tag: string): string[] => {
+    const updatedTags = selectedTags.filter((selectedTag) => selectedTag !== tag);
+    return updatedTags;
+  };
+
+  const filterTags = (tag: string): void => {
+    if (selectedTags.includes(tag)) {
+      setSelectedTags(removeTag(tag));
+    } else if (selectedTags.includes(ALL_TAG) && tag !== ALL_TAG) {
+      setSelectedTags([...removeTag(ALL_TAG), tag]);
+    } else if (!selectedTags.includes(ALL_TAG) && tag === ALL_TAG) {
+      setSelectedTags([ALL_TAG]);
+    } else {
+      setSelectedTags([...selectedTags, tag]);
+    }
+  };
+
+  const filteredCompanies = content.companiesUsingScala.filter(
+    ({ tags }) => selectedTags.includes(ALL_TAG) || selectedTags.every((selectedTag) => tags.includes(selectedTag)),
+  );
 
   const TagButton = ({ value }: { value: string }): JSX.Element => {
     return (
       <button
         id={value}
-        className={clsx(styles.tagButton, { 'styles.selected': value === selectedTag })}
+        className={clsx(styles.tagButton, { [styles.selected]: selectedTags.includes(value) })}
         onClick={() => {
-          setTag(value);
+          filterTags(value);
         }}
       >
         {value}
@@ -33,17 +55,15 @@ const ReactCompanies = ({ title }: ReactCompaniesProps): JSX.Element => {
       <div className={styles.tags}>
         <TagButton value={ALL_TAG} />
 
-        {TAGS_FROM_COMPANIES.map((tag: string) => (
-          <TagButton value={tag} />
+        {TAGS_FROM_COMPANIES.map((tag: string, index) => (
+          <TagButton key={index} value={tag} />
         ))}
       </div>
 
-      <div className={styles.content}>
-        {content.companiesUsingScala
-          .filter(({ tags }) => selectedTag === ALL_TAG || tags.includes(selectedTag))
-          .map((company: Company, index) => (
-            <ReactCompany key={index} {...company} />
-          ))}
+      <div className={clsx(styles.content, { [styles.noCompanyMatchText]: filteredCompanies.length === 0 })}>
+        {filteredCompanies.length > 0
+          ? filteredCompanies.map((company: Company, index) => <ReactCompany key={index} {...company} />)
+          : noCompanyMatchInfo}
       </div>
     </section>
   );

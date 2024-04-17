@@ -8,7 +8,8 @@ import Conferences from '@components/Conferences/Conferences.astro';
 import ReactCompanies from '@components/ReactCompanies';
 import Container from '@components/Container/Container.astro';
 import Title from '@components/Title/Title.astro';
-import { TITLE_ICONS } from '@domain/constants';
+import { TITLE_ICONS, TITLE_VARIANTS } from '@domain/constants';
+import content from '@content/content';
 ---
 
 <Layout title="Polish Scala Community">
@@ -20,6 +21,9 @@ import { TITLE_ICONS } from '@domain/constants';
       <ReactCompanies client:only="react">
         <div slot="title">
           <Title title="Companies using Scala" icon={TITLE_ICONS.handshake} />
+        </div>
+        <div slot="noCompanyMatchInfo">
+          <Title title={content.noCompanyMatchInfo} variant={TITLE_VARIANTS.small} />
         </div>
       </ReactCompanies>
     </Container>
