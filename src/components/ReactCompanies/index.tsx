@@ -31,10 +31,9 @@ const ReactCompanies = ({ title, noCompanyMatchInfo }: ReactCompaniesProps): JSX
     }
   };
 
-  const filteredCompanies = () =>
-    content.companiesUsingScala.filter(
-      ({ tags }) => selectedTags.includes(ALL_TAG) || selectedTags.every((selectedTag) => tags.includes(selectedTag)),
-    );
+  const filteredCompanies = content.companiesUsingScala.filter(
+    ({ tags }) => selectedTags.includes(ALL_TAG) || selectedTags.every((selectedTag) => tags.includes(selectedTag)),
+  );
 
   const TagButton = ({ value }: { value: string }): JSX.Element => {
     return (
