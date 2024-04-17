@@ -94,7 +94,7 @@ export const IMAGES = {
 
 - Add optimized svg to src/assets/svg folder
 
-Important!!! In astro project you can't use svg with "<use xlink:href= .....>" 
+Important!!! In astro project you can't use svg with "< use xlink:href= ..... >" 
 
 - Add svg name to content.meetupGroups object as string
 
