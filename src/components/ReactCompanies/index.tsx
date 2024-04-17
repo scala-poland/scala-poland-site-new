@@ -17,7 +17,7 @@ const ReactCompanies = ({ title }: ReactCompaniesProps): JSX.Element => {
     return (
       <button
         id={value}
-        className={clsx(styles.tagButton, { 'styles.selected': value === selectedTag })}
+        className={clsx(styles.tagButton, { [styles.selected]: value === selectedTag })}
         onClick={() => {
           setTag(value);
         }}
