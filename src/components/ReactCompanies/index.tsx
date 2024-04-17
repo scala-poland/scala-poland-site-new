@@ -19,7 +19,7 @@ const ReactCompanies = ({ title, noCompanyMatchInfo }: ReactCompaniesProps): JSX
     return updatedTags;
   };
 
-  const manageTags = (tag: string) => {
+  const filterTags = (tag: string): void => {
     if (selectedTags.includes(tag)) {
       setSelectedTags(removeTag(tag));
     } else if (selectedTags.includes(ALL_TAG) && tag !== ALL_TAG) {
@@ -31,13 +31,10 @@ const ReactCompanies = ({ title, noCompanyMatchInfo }: ReactCompaniesProps): JSX
     }
   };
 
-  const filteredCompanies = useMemo(
-    () =>
-      content.companiesUsingScala.filter(
-        ({ tags }) => selectedTags.includes(ALL_TAG) || selectedTags.every((selectedTag) => tags.includes(selectedTag)),
-      ),
-    [selectedTags],
-  );
+  const filteredCompanies = () =>
+    content.companiesUsingScala.filter(
+      ({ tags }) => selectedTags.includes(ALL_TAG) || selectedTags.every((selectedTag) => tags.includes(selectedTag)),
+    );
 
   const TagButton = ({ value }: { value: string }): JSX.Element => {
     return (
@@ -45,7 +42,7 @@ const ReactCompanies = ({ title, noCompanyMatchInfo }: ReactCompaniesProps): JSX
         id={value}
         className={clsx(styles.tagButton, { [styles.selected]: selectedTags.includes(value) })}
         onClick={() => {
-          manageTags(value);
+          filterTags(value);
         }}
       >
         {value}
